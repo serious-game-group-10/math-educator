@@ -1,0 +1,21 @@
+﻿<Properties StartupConfiguration="{91D21F73-40B6-8E16-38CA-D7E9D877F4A7}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PlayerScript/Player.cs">
+    <Files>
+      <File FileName="Assets/PlayerScript/Player.cs" Line="7" Column="12" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SeriousG" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0437ac90-f9f6-4a9a-b59f-676df319731f" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
