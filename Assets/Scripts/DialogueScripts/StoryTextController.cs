@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class StoryTextController : MonoBehaviour
 {
     private string[] storyText = new string[] {"Hello", "This is the game intro", "Thanks"};
+    [SerializeField] TextWriter textWriter;
     [SerializeField] Button storyDialogueButton;
     [SerializeField] Text displayText;
     [SerializeField] int index = 0;
@@ -13,21 +14,23 @@ public class StoryTextController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        displayText.text = storyText[index];
+        UpdateStoryTextDisplay();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("z"))
+        if (Input.GetKeyDown("z") && index < storyText.Length)
         {
             UpdateStoryTextDisplay();
         }
     }
 
-    public void UpdateStoryTextDisplay()
+    private void UpdateStoryTextDisplay()
     {
-        displayText.text = storyText[++index];
+        // write letters to display
+        textWriter.AddTextDialogue(displayText, storyText[index], 0.1f);
+        index++;
         Debug.Log("story index after change" + index);
     }
 }
