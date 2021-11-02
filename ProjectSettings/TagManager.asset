@@ -8,6 +8,7 @@ TagManager:
   - SettingsScreen
   - InstructionsScreen
   - SettingBackdrop
+  - Floor
   layers:
   - Default
   - TransparentFX
