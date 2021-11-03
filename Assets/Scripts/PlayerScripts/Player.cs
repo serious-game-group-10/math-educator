@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         movement = Input.GetAxis("Horizontal");
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") && isGrounded)
         {
             jumpPressed = true;
         }
