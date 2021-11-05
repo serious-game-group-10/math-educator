@@ -43,7 +43,7 @@ public class TheaterController : MonoBehaviour
     // fade in player
     IEnumerator FadeInPlayer(float fadeInSpeed)
     {
-        while (player.GetComponent<SpriteRenderer>().color.a < 1)
+        while (player.GetComponent<SpriteRenderer>().color .a < 1)
         {
             Color playerColor = player.GetComponent<SpriteRenderer>().color; // current color values
             float playerOpacity = playerColor.a;
