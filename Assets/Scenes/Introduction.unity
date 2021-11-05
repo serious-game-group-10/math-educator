@@ -203,7 +203,7 @@ Transform:
   m_LocalScale: {x: 445.94333, y: 505.7476, z: 144}
   m_Children: []
   m_Father: {fileID: 746483280}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.108}
 --- !u!1 &390153601
 GameObject:
@@ -361,11 +361,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textWriter: {fileID: 1681837159}
-  storyDialogueButton: {fileID: 390153603}
   displayText: {fileID: 1663850897}
   index: 0
   currentSceneIndex: 1
   backgroundMusic: {fileID: 0}
+  streetLamp: {fileID: 0}
+  playerSprite: {fileID: 0}
+  spotlight: {fileID: 0}
 --- !u!114 &746483277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,9 +440,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 289762993}
-  - {fileID: 1074723528}
   - {fileID: 785172097}
+  - {fileID: 1074723528}
+  - {fileID: 289762993}
   - {fileID: 390153602}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -600,8 +602,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 683255757
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d5b92d5d5dac2db4fa6e36174f543ea9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -626,7 +628,7 @@ Transform:
   m_LocalScale: {x: 80.712006, y: 77.256, z: 144}
   m_Children: []
   m_Father: {fileID: 746483280}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1074723526
 GameObject:
@@ -682,8 +684,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1839507787
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e7e9cfee63a1af3468687d0dca99cc22, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

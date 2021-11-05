@@ -19,6 +19,7 @@ public class StoryTextController : MonoBehaviour
 
     // audio 
     [SerializeField] AudioSource backgroundMusic;
+    [SerializeField] const float TIME_MUSIC_DELAY = 2;
 
     // scene props
     [SerializeField] GameObject streetLamp;
@@ -26,7 +27,7 @@ public class StoryTextController : MonoBehaviour
     [SerializeField] GameObject spotlight;
     [SerializeField] const float LAMP_FADE_IN_TIME = 0.1f;
     [SerializeField] const float PLAYER_FADE_IN_TIME = 0.08f;
-    [SerializeField] const float SPOTLIGHT_FADE_IN_TIME = 0.08f;
+    [SerializeField] const float SPOTLIGHT_FADE_IN_TIME = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -49,9 +50,6 @@ public class StoryTextController : MonoBehaviour
     {
         if (Input.GetKeyDown("z") && index < storyText.Length)
         {
-            UpdateStoryTextDisplay();
-            index++;
-
             // wait until second dialogue text appears
             if (index == 1)
             {
@@ -64,6 +62,8 @@ public class StoryTextController : MonoBehaviour
             {
                 StartCoroutine(FadeInPlayer(PLAYER_FADE_IN_TIME));
             }
+
+            UpdateStoryTextDisplay();
         } 
         else if (Input.GetKeyDown("z") && index >= storyText.Length)
         {
@@ -75,11 +75,12 @@ public class StoryTextController : MonoBehaviour
     {
         // write text to UI display using utility class
         textWriter.AddTextDialogue(displayText, storyText[index], 0.08f);
+        index++;
     }
 
     private void StartBackgroundMusic()
     {
-       backgroundMusic.PlayDelayed(3); // wait 3 seconds before playing audio
+       backgroundMusic.PlayDelayed(TIME_MUSIC_DELAY); // wait 3 seconds before playing audio
     }
 
     // Coroutine - runs over several frames without resetting values
@@ -98,7 +99,7 @@ public class StoryTextController : MonoBehaviour
     // fade in lamp spotlight
     IEnumerator FadeInLight(float fadeInSpeed)
     {
-        while (spotlight.GetComponent<SpriteRenderer>().color.a < 0.5)
+        while (spotlight.GetComponent<SpriteRenderer>().color.a < 0.6)
         {
             Color lightColor = spotlight.GetComponent<SpriteRenderer>().color; // current color values
             float lightOpacity = lightColor.a;
