@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TheaterController : MonoBehaviour
 {
     // sprites
     [SerializeField] GameObject player;
     [SerializeField] GameObject netflixBoss;
-
     // curtains
     [SerializeField] GameObject curtains;
     [SerializeField] const float RAISE_CURTAIN_TIME = 5f;
@@ -18,6 +18,7 @@ public class TheaterController : MonoBehaviour
         curtains = GameObject.Find("Curtains");
         player = GameObject.Find("Player");
         netflixBoss = GameObject.Find("NetflixBoss");
+        
     }
 
     // Update is called once per frame
@@ -28,6 +29,8 @@ public class TheaterController : MonoBehaviour
             RaiseCurtains();
             Debug.Log("The curtain y position " + curtains.transform.position.y);
         }
+
+        
     }
 
     private void FixedUpdate()

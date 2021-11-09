@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -10,10 +11,14 @@ public class Player : MonoBehaviour
     [SerializeField] bool isGrounded = true;
     [SerializeField] bool jumpPressed = false;
     [SerializeField] Rigidbody2D playerBody;
+    [SerializeField] Text healthText;
+    [SerializeField] int health = 5;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        GetHealth();
         if (playerBody == null)
         {
             playerBody = GetComponent<Rigidbody2D>();
@@ -27,6 +32,11 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown("space") && isGrounded)
         {
             jumpPressed = true;
+        }
+        GetHealth();
+        if (health == 0)
+        {
+                Destroy(gameObject);
         }
     }
 
@@ -45,6 +55,13 @@ public class Player : MonoBehaviour
         {
             Jump();
         }
+        
+    }
+
+    //GetHealth
+    private void GetHealth()
+    {
+        healthText.text = "Health: " + health;
     }
 
     private void Movement()
@@ -71,6 +88,11 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Floor")
         {
             isGrounded = true;
+        }
+        if(collision.gameObject.name == "bullet(Clone)")
+        {
+        health -= 5;
+        Debug.Log(health);
         }
     }
 }
