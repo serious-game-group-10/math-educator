@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +13,9 @@ public class Player : MonoBehaviour
     [SerializeField] bool jumpPressed = false;
     [SerializeField] Rigidbody2D playerBody;
 
+    [SerializeField] Text healthText;
+    [SerializeField] int health = 5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +23,7 @@ public class Player : MonoBehaviour
         {
             playerBody = GetComponent<Rigidbody2D>();
         }
+        health = 100;
     }
 
     // Update is called once per frame
@@ -72,5 +78,22 @@ public class Player : MonoBehaviour
         {
             isGrounded = true;
         }
+    }
+
+    public void takeDamage(int damagePoint)
+    {
+        health -= damagePoint;
+
+        gameObject.GetComponent<PlayerHealth>().updateHealth(health);
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        SceneManager.LoadScene("EndScene");
     }
 }
