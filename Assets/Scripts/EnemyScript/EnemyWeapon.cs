@@ -7,21 +7,21 @@ public class EnemyWeapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
+    [SerializeField] AudioSource fireBulletSound;
 
     private void Start()
     {
+        fireBulletSound = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Shoot();
-        }
+
     }
 
-    void Shoot()
+    public void Shoot()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        AudioSource.PlayClipAtPoint(fireBulletSound.clip, transform.position);
     }
 }

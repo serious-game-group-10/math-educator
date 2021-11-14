@@ -1,38 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class EnemyBullet : MonoBehaviour
 {
-    private float speed = 30f;
-    private Rigidbody2D rb;
+    private const int BULLET_DAMAGE = 20;
+    private const float BULLET_SPEED = 2f;
+    private GameObject player;
+    private Rigidbody2D enemyBullet;
 
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        StartCoroutine(removeBullet());
+        player = GameObject.Find("Player");
+        enemyBullet = gameObject.GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        rb.velocity = transform.right * speed;
+        enemyBullet.velocity = player.transform.position * BULLET_SPEED;
     }
 
-    // private void OnTriggerEnter2D(Collider2D collision)
-    // {
-    //     Enemy enemy = collision.GetComponent<Enemy>();
-
-    //     if (enemy != null)
-    //     {
-    //         enemy.takeDamage(20);
-    //         Destroy(gameObject);
-    //     }
-    // }
-
-    IEnumerator removeBullet()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        yield return new WaitForSeconds(2);
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "Floor" || collision.gameObject.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.tag == "Player")
+        {
+            player.GetComponent<Player>().takeDamage(BULLET_DAMAGE);
+            Destroy(gameObject);
+        }
     }
 }
