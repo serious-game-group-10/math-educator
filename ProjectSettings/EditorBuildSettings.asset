@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Introduction.unity
     guid: 1e1426fef1eb6004991dbdfe1627be43
   - enabled: 1
-    path: Assets/Scenes/Level1-Netflix.unity
+    path: Assets/Scenes/BossBattle.unity
     guid: cc4e37514c453d943918a5947767524c
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 0e1eb10e0be8a624b9f01a6b735131bd
   m_configObjects: {}

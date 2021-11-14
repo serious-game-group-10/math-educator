@@ -10,6 +10,11 @@ TagManager:
   - SettingBackdrop
   - Floor
   - Wall
+  - button
+  - AnswerTxt
+  - Enemy
+  - QuestionText
+  - DividerWall
   layers:
   - Default
   - TransparentFX

@@ -14,8 +14,9 @@ public class StoryTextController : MonoBehaviour
 
     [SerializeField] TextWriter textWriter;
     [SerializeField] Text displayText;
-    [SerializeField] int index = 0;
-    [SerializeField] int currentSceneIndex = 1;
+    [SerializeField] int textIndex = 0;
+    [SerializeField] const int CURRENT_SCENE_INDEX = 1;
+    [SerializeField] const float TEXT_WRITING_SPEED = 0.08f;
 
     // audio 
     [SerializeField] AudioSource backgroundMusic;
@@ -48,24 +49,24 @@ public class StoryTextController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("z") && index < storyText.Length)
+        if (Input.GetKeyDown("z") && textIndex < storyText.Length)
         {
             // wait until second dialogue text appears
-            if (index == 1)
+            if (textIndex == 1)
             {
                 StartBackgroundMusic(); // play background music
                 // fade in all scene props
                 StartCoroutine(FadeInLamp(LAMP_FADE_IN_TIME));
                 StartCoroutine(FadeInLight(SPOTLIGHT_FADE_IN_TIME));
             } 
-            else if (index == 2)
+            else if (textIndex == 2)
             {
                 StartCoroutine(FadeInPlayer(PLAYER_FADE_IN_TIME));
             }
 
             UpdateStoryTextDisplay();
         } 
-        else if (Input.GetKeyDown("z") && index >= storyText.Length)
+        else if (Input.GetKeyDown("z") && textIndex >= storyText.Length)
         {
             LoadNextLevel();
         }
@@ -74,8 +75,8 @@ public class StoryTextController : MonoBehaviour
     private void UpdateStoryTextDisplay()
     {
         // write text to UI display using utility class
-        textWriter.AddTextDialogue(displayText, storyText[index], 0.08f);
-        index++;
+        textWriter.AddTextDialogue(displayText, storyText[textIndex], TEXT_WRITING_SPEED);
+        textIndex++;
     }
 
     private void StartBackgroundMusic()
@@ -122,6 +123,6 @@ public class StoryTextController : MonoBehaviour
 
     private void LoadNextLevel()
     {
-        SceneManager.LoadScene(currentSceneIndex + 1);
+        SceneManager.LoadScene(CURRENT_SCENE_INDEX + 1);
     }
 }
