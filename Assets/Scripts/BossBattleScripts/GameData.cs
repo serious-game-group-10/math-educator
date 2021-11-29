@@ -10,6 +10,8 @@ public class GameData : MonoBehaviour
     private string[,] answers;
     private string[] correctAnswers;
     private string[] attackMoves;
+    private int currentScore;
+    private Highscore[] highscoreDB;
 
     public static GameData instance = null;
 
@@ -28,6 +30,8 @@ public class GameData : MonoBehaviour
     private void Start()
     {
         questionIndex = 0;
+        currentScore = 0;
+        highscoreDB = new Highscore[5];
         initializeQuestionArray();
         initializeAnswerChoicesArray();
         initializeAnswerArray();
@@ -172,6 +176,11 @@ public class GameData : MonoBehaviour
         };
     }
 
+    public void addScore()
+    {
+        this.currentScore = this.currentScore + 1;
+    }
+
     public void setQuestionIndex()
     {
         this.questionIndex = questionIndex + 1;
@@ -200,5 +209,41 @@ public class GameData : MonoBehaviour
     public string[] getCorrectAnswers()
     {
         return correctAnswers;
+    }
+
+    public int getScore()
+    {
+        return this.currentScore;
+    }
+
+    public Highscore[] getHighScoreDB()
+    {
+        return highscoreDB;
+    }
+
+    private void addHighScore()
+    {
+        for (int i = 0; i < highscoreDB.Length; i++)
+        {
+            if(highscoreDB[i] == null)
+            {
+                highscoreDB[i] = new HB(playerName, currentScore);
+                return;
+            }
+        }
+        bubbleSort(highscoreDB);
+    }
+
+    private void bubbleSort(HB[] highscore)
+    {
+        int n = highscore.Length;
+        for (int i = 0; i < n - 1; i++)
+            for (int j = 0; j < n - i - 1; j++)
+                if (highscore[j].getCurrentScore() < highscore[j + 1].getCurrentScore())
+                {
+                    HB temp = highscore[j];
+                    highscore[j] = highscore[j + 1];
+                    highscore[j + 1] = temp;
+                }
     }
 }
