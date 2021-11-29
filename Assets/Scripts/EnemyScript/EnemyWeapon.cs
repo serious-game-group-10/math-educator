@@ -14,11 +14,6 @@ public class EnemyWeapon : MonoBehaviour
         fireBulletSound = GetComponent<AudioSource>();
     }
 
-    void Update()
-    {
-
-    }
-
     public void Shoot()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);

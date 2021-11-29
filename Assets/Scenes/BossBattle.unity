@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 223434343}
   - component: {fileID: 223434342}
   m_Layer: 5
-  m_Name: QuestionTxt
+  m_Name: UIText
   m_TagString: QuestionText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -280}
-  m_SizeDelta: {x: 800, y: 200}
+  m_AnchoredPosition: {x: -22, y: 74}
+  m_SizeDelta: {x: 1764.3, y: 133.39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &223434342
 MonoBehaviour:
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 271787238}
   - component: {fileID: 271787237}
   m_Layer: 5
-  m_Name: AnswerBTxt
+  m_Name: ChooseBTxt
   m_TagString: AnswerTxt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -362,8 +362,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 358270783}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.8235, y: 2.0962, z: 13.845627}
-  m_LocalScale: {x: 1.1319, y: 1.2787, z: 1}
+  m_LocalPosition: {x: 7.31, y: 2.1, z: 13.845627}
+  m_LocalScale: {x: 0.7942542, y: 0.83358455, z: 1}
   m_Children: []
   m_Father: {fileID: 2045186602}
   m_RootOrder: 4
@@ -605,7 +605,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389780655}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1661, y: -0.0487, z: 13.845627}
+  m_LocalPosition: {x: -2.03, y: -0.09, z: 13.845627}
   m_LocalScale: {x: 1.809361, y: 1.9968965, z: 1}
   m_Children: []
   m_Father: {fileID: 2045186602}
@@ -750,6 +750,7 @@ GameObject:
   - component: {fileID: 651038448}
   - component: {fileID: 651038447}
   - component: {fileID: 651038446}
+  - component: {fileID: 651038449}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -822,6 +823,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &651038449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651038445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d954fc39658834797ea0c04f8f1a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &880033187
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,7 +848,7 @@ GameObject:
   - component: {fileID: 880033190}
   - component: {fileID: 880033189}
   m_Layer: 5
-  m_Name: AnswerDBtn
+  m_Name: ChooseDBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -858,7 +871,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 720, y: -450}
+  m_AnchoredPosition: {x: 671, y: -80}
   m_SizeDelta: {x: 350, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &880033189
@@ -905,9 +918,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2136878877}
-        m_TargetAssemblyTypeName: QuestionChecker, Assembly-CSharp
-        m_MethodName: checkAnswer
+      - m_Target: {fileID: 1394433226}
+        m_TargetAssemblyTypeName: ChooseChecker, Assembly-CSharp
+        m_MethodName: checkChoices
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 880033189}
@@ -967,7 +980,7 @@ GameObject:
   - component: {fileID: 989419778}
   - component: {fileID: 989419777}
   m_Layer: 5
-  m_Name: AnswerCTxt
+  m_Name: ChooseCTxt
   m_TagString: AnswerTxt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1113,6 +1126,63 @@ RectTransform:
   m_AnchoredPosition: {x: -800, y: 450}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1394433223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1394433224}
+  - component: {fileID: 1394433225}
+  - component: {fileID: 1394433226}
+  m_Layer: 0
+  m_Name: UIDisplay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1394433224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394433223}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1323357, y: 1.4435167, z: -102.785385}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2136878879}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1394433225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394433223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd06440295b24e08b56d952bcc85b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1394433226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394433223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a6a8ef602ec774da19acba1f1cde60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1400678918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,7 +1286,7 @@ GameObject:
   - component: {fileID: 1616198939}
   - component: {fileID: 1616198938}
   m_Layer: 5
-  m_Name: AnswerBBtn
+  m_Name: ChooseBBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1239,7 +1309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -240, y: -450}
+  m_AnchoredPosition: {x: -225, y: -91}
   m_SizeDelta: {x: 350, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1616198938
@@ -1286,9 +1356,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2136878877}
-        m_TargetAssemblyTypeName: QuestionChecker, Assembly-CSharp
-        m_MethodName: checkAnswer
+      - m_Target: {fileID: 1394433226}
+        m_TargetAssemblyTypeName: ChooseChecker, Assembly-CSharp
+        m_MethodName: checkChoices
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1616198938}
@@ -1363,8 +1433,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618748777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 91.0533}
+  m_LocalScale: {x: 0.011111111, y: 0.011111111, z: 0.011111111}
   m_Children:
   - {fileID: 223434341}
   - {fileID: 1829187645}
@@ -1376,9 +1446,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.4047, y: -4.848}
+  m_SizeDelta: {x: 1924.6902, y: 406.1472}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1618748779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1418,7 +1488,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1618748781
 Canvas:
   m_ObjectHideFlags: 0
@@ -1428,7 +1498,7 @@ Canvas:
   m_GameObject: {fileID: 1618748777}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 651038447}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1452,7 +1522,7 @@ GameObject:
   - component: {fileID: 1678598885}
   - component: {fileID: 1678598884}
   m_Layer: 5
-  m_Name: AnswerATxt
+  m_Name: ChooseATxt
   m_TagString: AnswerTxt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1660,7 +1730,7 @@ GameObject:
   - component: {fileID: 1796718893}
   - component: {fileID: 1796718892}
   m_Layer: 5
-  m_Name: AnswerCBtn
+  m_Name: ChooseCBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1683,7 +1753,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 240, y: -450}
+  m_AnchoredPosition: {x: 234, y: -82}
   m_SizeDelta: {x: 350, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1796718892
@@ -1730,9 +1800,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2136878877}
-        m_TargetAssemblyTypeName: QuestionChecker, Assembly-CSharp
-        m_MethodName: checkAnswer
+      - m_Target: {fileID: 1394433226}
+        m_TargetAssemblyTypeName: ChooseChecker, Assembly-CSharp
+        m_MethodName: checkChoices
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1796718892}
@@ -1872,7 +1942,7 @@ GameObject:
   - component: {fileID: 1829187647}
   - component: {fileID: 1829187646}
   m_Layer: 5
-  m_Name: AnswerABtn
+  m_Name: ChooseABtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1895,7 +1965,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -720, y: -450}
+  m_AnchoredPosition: {x: -666, y: -87}
   m_SizeDelta: {x: 350, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1829187646
@@ -1942,9 +2012,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2136878877}
-        m_TargetAssemblyTypeName: QuestionChecker, Assembly-CSharp
-        m_MethodName: checkAnswer
+      - m_Target: {fileID: 1394433226}
+        m_TargetAssemblyTypeName: ChooseChecker, Assembly-CSharp
+        m_MethodName: checkChoices
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1829187646}
@@ -2162,7 +2232,7 @@ GameObject:
   - component: {fileID: 1995631109}
   - component: {fileID: 1995631108}
   m_Layer: 5
-  m_Name: AnswerDTxt
+  m_Name: ChooseDTxt
   m_TagString: AnswerTxt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2469,40 +2539,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2136878879}
-  - component: {fileID: 2136878877}
-  - component: {fileID: 2136878878}
-  - component: {fileID: 2136878880}
   m_Layer: 0
-  m_Name: QuestionPanel
+  m_Name: UIPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2136878877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2136878876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64a6a8ef602ec774da19acba1f1cde60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2136878878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2136878876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6d954fc39658834797ea0c04f8f1a39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2136878879
 Transform:
   m_ObjectHideFlags: 0
@@ -2510,26 +2553,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136878876}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4097851, y: 1.0895545, z: -1.0532955}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.5421207, y: -0.35396218, z: 101.732086}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1618748778}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1394433224}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2136878880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2136878876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9501c72e0aea384886e1bf1f5f27f10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8738144124063434745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2567,11 +2598,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8738144124531549735, guid: c525464bbf0115a408cc8a6600dfd8ea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.3
+      value: -7.49
       objectReference: {fileID: 0}
     - target: {fileID: 8738144124531549735, guid: c525464bbf0115a408cc8a6600dfd8ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.2345947
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 8738144124531549735, guid: c525464bbf0115a408cc8a6600dfd8ea, type: 3}
       propertyPath: m_LocalPosition.z

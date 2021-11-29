@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    private const int BULLET_DAMAGE = 20;
+    private const int BULLET_DAMAGE = 10;
     private const float BULLET_SPEED = 2f;
     private GameObject player;
     private Rigidbody2D enemyBullet;
+    private GameObject UIDisplay;
+    private UIBoss UIBoss;
 
     void Start()
     {
         player = GameObject.Find("Player");
         enemyBullet = gameObject.GetComponent<Rigidbody2D>();
+        UIDisplay = GameObject.Find("UIDisplay");
+        UIBoss = UIDisplay.GetComponent<UIBoss>();
     }
 
     void Update()
@@ -29,6 +33,7 @@ public class EnemyBullet : MonoBehaviour
         else if (collision.gameObject.tag == "Player")
         {
             player.GetComponent<Player>().takeDamage(BULLET_DAMAGE);
+            UIBoss.enableUI();
             Destroy(gameObject);
         }
     }

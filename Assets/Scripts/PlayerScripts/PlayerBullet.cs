@@ -4,28 +4,25 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
-    private const int BULLET_DAMAGE = 25;
+    private const int BULLET_DAMAGE = 10;
     private const float BULLET_SPEED = 5f;
     private GameObject enemy;
     private Rigidbody2D playerBullet;
-    private GameObject questionPanel;
-    private DisplayQuestion questionDisplayer;
+    private GameObject UIDisplay;
+    private UIBoss UIBoss;
 
     void Start()
     {
         playerBullet = gameObject.GetComponent<Rigidbody2D>();
         enemy = GameObject.Find("Boss");
-
-        questionPanel = GameObject.Find("QuestionPanel");
-        questionDisplayer = questionPanel.GetComponent<DisplayQuestion>();
+        UIDisplay = GameObject.Find("UIDisplay");
+        UIBoss = UIDisplay.GetComponent<UIBoss>();
     }
 
     void Update()
     {
         playerBullet.velocity = enemy.transform.position * BULLET_SPEED;
     }
-
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -36,7 +33,8 @@ public class PlayerBullet : MonoBehaviour
         else if (collision.gameObject.tag == "Enemy")
         {
             enemy.GetComponent<Enemy>().takeDamage(BULLET_DAMAGE);
-            questionDisplayer.displayQuestionAndAnswer();
+            UIBoss.enableUI();
+            UIBoss.displayQuestionAndAnswer();
             Destroy(gameObject);
         }
     }
