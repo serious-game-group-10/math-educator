@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] bool isGrounded = true;
     [SerializeField] bool jumpPressed = false;
     [SerializeField] Rigidbody2D playerBody;
-
+    
     [SerializeField] Text healthText;
     [SerializeField] int health = 5;
     public static Player Instance;
@@ -23,9 +23,18 @@ public class Player : MonoBehaviour
         Instance = this;
     }
 
+    [SerializeField] Animator anim;
+    const int idle = 0;
+    const int moving = 1;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        if (anim == null){
+            anim = GetComponent<Animator>();
+        }
+       
         if (playerBody == null)
         {
             playerBody = GetComponent<Rigidbody2D>();
@@ -47,6 +56,15 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         Movement();
+        //changing state if moving or not
+        if (movement > .01 || movement < -.01)
+            {
+                anim.SetInteger("motion", moving);
+            }
+        else
+            {
+                anim.SetInteger("motion", idle);
+            }
         
         // check if facing right direction
         if (movement < 0 && isFacingRight || movement > 0 && !isFacingRight)
