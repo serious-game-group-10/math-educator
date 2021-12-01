@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float speed = 10.0f;
+    [SerializeField] float speed = 5.0f;
+    [SerializeField] float jumpPower = 10f;
     [SerializeField] float movement;
     [SerializeField] bool isFacingRight = true;
     [SerializeField] bool isGrounded = true;
@@ -15,6 +16,12 @@ public class Player : MonoBehaviour
     
     [SerializeField] Text healthText;
     [SerializeField] int health = 5;
+    public static Player Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     [SerializeField] Animator anim;
     const int idle = 0;
@@ -86,7 +93,7 @@ public class Player : MonoBehaviour
     private void Jump()
     {
         playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
-        playerBody.AddForce(new Vector2(0, speed * 30.0f));
+        playerBody.AddForce(new Vector2(0, jumpPower * 30.0f));
         isGrounded = false;
         jumpPressed = false;
     }
