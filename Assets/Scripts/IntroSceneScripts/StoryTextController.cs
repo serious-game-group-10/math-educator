@@ -15,13 +15,12 @@ public class StoryTextController : MonoBehaviour
     [SerializeField] TextWriter textWriter;
     [SerializeField] Text displayText;
     [SerializeField] int textIndex = 0;
+    [SerializeField] const int CURRENT_SCENE_INDEX = 1;
     [SerializeField] const float TEXT_WRITING_SPEED = 0.08f;
 
     // audio 
     [SerializeField] AudioSource backgroundMusic;
     [SerializeField] const float TIME_MUSIC_DELAY = 2;
-
-    [SerializeField] const int CURRENT_SCENE_INDEX = 1;
 
     // scene props
     [SerializeField] GameObject streetLamp;

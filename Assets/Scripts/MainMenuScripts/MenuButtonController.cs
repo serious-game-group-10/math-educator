@@ -5,12 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuButtonController : MonoBehaviour
 {
-    GameObject[] highScoreObjects;
     GameObject[] mainMenuObjects;
     GameObject[] settingMenuObjects;
     GameObject[] instructionObjects;
     GameObject backdrop;
-    GameObject backToMenuButton;
     private int currentSceneIndex = 0;
 
     // Start is called before the first frame update
@@ -19,16 +17,11 @@ public class MenuButtonController : MonoBehaviour
         mainMenuObjects = GameObject.FindGameObjectsWithTag("MainScreen");
         settingMenuObjects = GameObject.FindGameObjectsWithTag("SettingsScreen");
         instructionObjects = GameObject.FindGameObjectsWithTag("InstructionsScreen");
-        highScoreObjects = GameObject.FindGameObjectsWithTag("HighScores");
         backdrop = GameObject.FindGameObjectWithTag("SettingBackdrop");
-        backToMenuButton = GameObject.FindGameObjectWithTag("BackToMenuButton");
 
-        this.HideBackToMenuButton();
         this.HideBackdrop();
         this.ExitSettingsMenu();
         this.ExitInstructionsMenu();
-        this.ExitHighScoresMenu();
-        this.EnterMainMenu();
     }
 
     // play game button function
@@ -54,19 +47,7 @@ public class MenuButtonController : MonoBehaviour
     {
         this.ExitMainMenu();
         this.ShowBackdrop();
-        this.ShowBackToMenuButton();
         foreach (GameObject obj in instructionObjects)
-        {
-            obj.SetActive(true);
-        }
-    }
-
-    public void EnterHighScoreMenu()
-    {
-        this.ExitMainMenu();
-        this.ShowBackdrop();
-        this.ShowBackToMenuButton();
-        foreach (GameObject obj in highScoreObjects)
         {
             obj.SetActive(true);
         }
@@ -75,21 +56,11 @@ public class MenuButtonController : MonoBehaviour
     public void EnterMainMenu()
     {
         this.HideBackdrop();
-        this.HideBackToMenuButton();
         this.ExitSettingsMenu();
         this.ExitInstructionsMenu();
-        this.ExitHighScoresMenu();
         foreach (GameObject obj in mainMenuObjects)
         {
             obj.SetActive(true);
-        }
-    }
-
-    private void ExitHighScoresMenu()
-    {
-        foreach(GameObject obj in highScoreObjects)
-        {
-            obj.SetActive(false);
         }
     }
 
@@ -126,15 +97,5 @@ public class MenuButtonController : MonoBehaviour
     private void ShowBackdrop()
     {
         this.backdrop.SetActive(true);
-    }
-
-    public void ShowBackToMenuButton()
-    {
-        backToMenuButton.SetActive(true);
-    }
-
-    private void HideBackToMenuButton()
-    {
-        backToMenuButton.SetActive(false);
     }
 }

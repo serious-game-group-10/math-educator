@@ -12,18 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Introduction.unity
     guid: 1e1426fef1eb6004991dbdfe1627be43
   - enabled: 1
-    path: Assets/Scenes/TransitionToTutorial.unity
-    guid: c1e3d4996d2d2da4d9a4795d6a5f6ad6
-  - enabled: 1
-    path: Assets/Scenes/Tutorial1.unity
-    guid: 88bd4c82e7dd8e142b9d9bfcf9d844cd
-  - enabled: 1
-    path: Assets/Scenes/Tutorial2.unity
-    guid: ac43f674c811cdf4792bd36c5bf0dba6
-  - enabled: 1
-    path: Assets/Scenes/Tutorial3.unity
-    guid: 8770a7e8829977f4491d72251a8b23ba
-  - enabled: 1
     path: Assets/Scenes/BossBattle.unity
     guid: cc4e37514c453d943918a5947767524c
   - enabled: 1

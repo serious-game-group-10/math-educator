@@ -15,12 +15,6 @@ TagManager:
   - Enemy
   - QuestionText
   - DividerWall
-  - PrevButton
-  - NextButton
-  - HelpPanel
-  - CloseButton
-  - HighScores
-  - BackToMenuButton
   layers:
   - Default
   - TransparentFX
@@ -63,10 +57,4 @@ TagManager:
     locked: 0
   - name: foreground
     uniqueID: 683255757
-    locked: 0
-  - name: behindFront
-    uniqueID: 3337910185
-    locked: 0
-  - name: front
-    uniqueID: 1430745175
     locked: 0
