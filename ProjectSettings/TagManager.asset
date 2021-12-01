@@ -20,6 +20,7 @@ TagManager:
   - HelpPanel
   - CloseButton
   - HighScores
+  - BackToMenuButton
   layers:
   - Default
   - TransparentFX
