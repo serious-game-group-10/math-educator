@@ -11,6 +11,7 @@ public class GameData : MonoBehaviour
     private string[] correctAnswers;
     private string[] attackMoves;
     private int currentScore;
+    private string playerName;
     private Highscore[] highscoreDB;
 
     public static GameData instance = null;
@@ -227,21 +228,21 @@ public class GameData : MonoBehaviour
         {
             if(highscoreDB[i] == null)
             {
-                highscoreDB[i] = new HB(playerName, currentScore);
+                highscoreDB[i] = new Highscore(playerName, currentScore);
                 return;
             }
         }
         bubbleSort(highscoreDB);
     }
 
-    private void bubbleSort(HB[] highscore)
+    private void bubbleSort(Highscore[] highscore)
     {
         int n = highscore.Length;
         for (int i = 0; i < n - 1; i++)
             for (int j = 0; j < n - i - 1; j++)
                 if (highscore[j].getCurrentScore() < highscore[j + 1].getCurrentScore())
                 {
-                    HB temp = highscore[j];
+                    Highscore temp = highscore[j];
                     highscore[j] = highscore[j + 1];
                     highscore[j + 1] = temp;
                 }
