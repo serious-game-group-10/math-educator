@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossBattleController : MonoBehaviour
 {
@@ -16,15 +17,20 @@ public class BossBattleController : MonoBehaviour
     // music
     [SerializeField] AudioSource backgroundMusic;
 
+    //Gameobject
+    private GameObject UIDisplay;
+
     // Start is called before the first frame update
     void Start()
     {
         // add game music here
-
-
+        UIDisplay = GameObject.Find("UIDisplay");
         curtains = GameObject.Find("Curtains");
         player = GameObject.Find("Player");
-        netflixBoss = GameObject.Find("NetflixBoss");
+        netflixBoss = GameObject.Find("Boss");
+        UIDisplay.SetActive(false);
+        player.SetActive(false);
+        netflixBoss.SetActive(false);
         StartCoroutine(RaiseCurtains());
     }
 
@@ -36,6 +42,10 @@ public class BossBattleController : MonoBehaviour
             curtains.transform.Translate(new Vector2(0, 1f) * RAISE_CURTAIN_TIME * Time.deltaTime);
             yield return null;
         }
+
+        UIDisplay.SetActive(true);
+        player.SetActive(true);
+        netflixBoss.SetActive(true);
 
         // backgroundMusic.Play();
     }

@@ -15,6 +15,7 @@ TagManager:
   - Enemy
   - QuestionText
   - DividerWall
+  - AttackMovesPanel
   - PrevButton
   - NextButton
   - HelpPanel

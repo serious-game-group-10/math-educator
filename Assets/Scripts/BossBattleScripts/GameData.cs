@@ -9,6 +9,10 @@ public class GameData : MonoBehaviour
     private string[] questions;
     private string[,] answers;
     private string[] correctAnswers;
+    private string[] attackMoves;
+    private int currentScore;
+    private string playerName;
+    private Highscore[] highscoreDB;
 
     public static GameData instance = null;
 
@@ -27,9 +31,26 @@ public class GameData : MonoBehaviour
     private void Start()
     {
         questionIndex = 0;
+        currentScore = 0;
+        highscoreDB = new Highscore[5];
         initializeQuestionArray();
         initializeAnswerChoicesArray();
         initializeAnswerArray();
+        initializeAttackMovesArray();
+    }
+
+    private void initializeAttackMovesArray()
+    {
+        attackMoves = new string []
+        {
+            @"Shoot Earth",
+
+            @"Shoot Fire",
+
+            @"Shoot Water",
+
+            @"Shoot Air",
+        };
     }
 
     private void initializeQuestionArray()
@@ -60,7 +81,25 @@ public class GameData : MonoBehaviour
                         sum += n * n;
                         return sum;
                     }
-                }"
+                }",
+
+            // question 5
+            @"The default value of a static integer variable of a class in Java is",
+
+            // question 6
+            @"To prevent any method from overriding, we declare the method as",
+
+            // question 7
+            @"Which of the following variable declaration would NOT compile in a java program?",
+
+            // question 8
+            @"All exception types are subclasses of the built-in class",
+
+            // question 9
+            @"In java, objects are passed as",
+
+            // question 10
+            @"What would the argument passing method be which is used by the above Program – III?",
         };
     }
 
@@ -80,7 +119,25 @@ public class GameData : MonoBehaviour
             { "int", "double", "boolean", "String" }, 
 
             // answers[3][0] answers[3][1] answers[3][2] answers[3][3]
-            { "return sum should be outside the for-loop", "nothing is wrong with the code", "int i should start at 0", "sumOfSquares should return void" }
+            { "return sum should be outside the for-loop", "nothing is wrong with the code", "int i should start at 0", "sumOfSquares should return void" },
+
+            // answers[4][0] answers[4][1] answers[4][2] answers[4][3]
+            { "0", "1", "Garbage value", "null" },
+            
+            // answers[5][0] answers[5][1] answers[5][2] answers[5][3]
+            { "static", "const", "final", "abstract" },
+
+            // answers[6][0] answers[6][1] answers[6][2] answers[6][3]
+            { "int var", "int VAR", "int var1", "int 1_var" },
+            
+            // answers[7][0] answers[7][1] answers[7][2] answers[7][3]
+            { "Exception", "RuntimeException", "Error", "Throwable" },
+            
+            // answers[8][0] answers[8][1] answers[8][2] answers[8][3]
+            { "Net Beans", "Borland’s Jbuilder", "Symantec’s Visual Café", "Microsoft Visual J++" },
+
+            // answers[9][0] answers[9][1] answers[9][2] answers[9][3]
+            { "Call by value", "Call by reference", "Call by java.lang class", "Call by compiler" },
         };
     }
 
@@ -98,18 +155,46 @@ public class GameData : MonoBehaviour
             "String",
 
             // question 4 answer {correctAnswers[3]) 
-            "return sum should be outside the for-loop"
+            "return sum should be outside the for-loop",
+
+            // question 5 answer {correctAnswers[4]) 
+            "0",
+
+            // question 6 answer {correctAnswers[5]) 
+            "final",
+
+            // question 7 answer {correctAnswers[6]) 
+            "int 1_var",
+
+            // question 8 answer {correctAnswers[7]) 
+            "Throwable",
+
+            // question 9 answer {correctAnswers[8]) 
+            "Symantec’s Visual Café",
+
+            // question 10 answer {correctAnswers[9]) 
+            "Call by value",
         };
     }
 
-    public void setQuestionIndex(int questionIndex)
+    public void addScore()
     {
-        this.questionIndex = questionIndex;
+        this.currentScore = this.currentScore + 1;
+    }
+
+    public void setQuestionIndex()
+    {
+        this.questionIndex = questionIndex + 1;
     }
 
     public int getQuestionIndex()
     {
         return this.questionIndex;
+    }
+
+    public string [] getAttackMovesArray()
+    {
+        return attackMoves;
     }
 
     public string[] getQuestionArray()
@@ -125,5 +210,41 @@ public class GameData : MonoBehaviour
     public string[] getCorrectAnswers()
     {
         return correctAnswers;
+    }
+
+    public int getScore()
+    {
+        return this.currentScore;
+    }
+
+    public Highscore[] getHighScoreDB()
+    {
+        return highscoreDB;
+    }
+
+    private void addHighScore()
+    {
+        for (int i = 0; i < highscoreDB.Length; i++)
+        {
+            if(highscoreDB[i] == null)
+            {
+                highscoreDB[i] = new Highscore(playerName, currentScore);
+                return;
+            }
+        }
+        bubbleSort(highscoreDB);
+    }
+
+    private void bubbleSort(Highscore[] highscore)
+    {
+        int n = highscore.Length;
+        for (int i = 0; i < n - 1; i++)
+            for (int j = 0; j < n - i - 1; j++)
+                if (highscore[j].getCurrentScore() < highscore[j + 1].getCurrentScore())
+                {
+                    Highscore temp = highscore[j];
+                    highscore[j] = highscore[j + 1];
+                    highscore[j + 1] = temp;
+                }
     }
 }
