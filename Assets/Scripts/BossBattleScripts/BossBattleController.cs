@@ -36,8 +36,8 @@ public class BossBattleController : MonoBehaviour
 
     IEnumerator RaiseCurtains()
     {
-        yield return new WaitForSeconds(2); // wait 2 seconds before executing below statements
-        while (curtains.transform.position.y < 8.5f)
+        yield return new WaitForSeconds(1); // wait 2 seconds before executing below statements
+        while (curtains.transform.position.y < 13.0f)
         {
             curtains.transform.Translate(new Vector2(0, 1f) * RAISE_CURTAIN_TIME * Time.deltaTime);
             yield return null;
