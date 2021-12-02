@@ -6,6 +6,7 @@ public class EnemyBullet : MonoBehaviour
 {
     private const int BULLET_DAMAGE = 10;
     private const float BULLET_SPEED = 2f;
+    private Vector3 bulletDirection;
     private GameObject player;
     private Rigidbody2D enemyBullet;
     private GameObject UIDisplay;
@@ -14,6 +15,10 @@ public class EnemyBullet : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        if (player != null)
+        {
+            bulletDirection = player.transform.position;
+        }
         enemyBullet = gameObject.GetComponent<Rigidbody2D>();
         UIDisplay = GameObject.Find("UIDisplay");
         UIBoss = UIDisplay.GetComponent<UIBoss>();
@@ -21,7 +26,7 @@ public class EnemyBullet : MonoBehaviour
 
     void Update()
     {
-        enemyBullet.velocity = player.transform.position * BULLET_SPEED;
+        enemyBullet.velocity = bulletDirection * BULLET_SPEED;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -6,19 +6,35 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float speed = 10.0f;
+    [SerializeField] float speed = 5.0f;
+    [SerializeField] float jumpPower = 10f;
     [SerializeField] float movement;
     [SerializeField] bool isFacingRight = true;
     [SerializeField] bool isGrounded = true;
     [SerializeField] bool jumpPressed = false;
     [SerializeField] Rigidbody2D playerBody;
-
+    
     [SerializeField] Text healthText;
     [SerializeField] int health = 5;
+    public static Player Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    [SerializeField] Animator anim;
+    const int idle = 0;
+    const int moving = 1;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        if (anim == null){
+            anim = GetComponent<Animator>();
+        }
+       
         if (playerBody == null)
         {
             playerBody = GetComponent<Rigidbody2D>();
@@ -30,6 +46,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         movement = Input.GetAxis("Horizontal");
+
         if (Input.GetKeyDown("space"))
         {
             jumpPressed = true;
@@ -39,6 +56,15 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         Movement();
+        //changing state if moving or not
+        if (movement > .01 || movement < -.01)
+            {
+                anim.SetInteger("motion", moving);
+            }
+        else
+            {
+                anim.SetInteger("motion", idle);
+            }
         
         // check if facing right direction
         if (movement < 0 && isFacingRight || movement > 0 && !isFacingRight)
@@ -67,7 +93,7 @@ public class Player : MonoBehaviour
     private void Jump()
     {
         playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
-        playerBody.AddForce(new Vector2(0, speed * 30.0f));
+        playerBody.AddForce(new Vector2(0, jumpPower * 30.0f));
         isGrounded = false;
         jumpPressed = false;
     }
