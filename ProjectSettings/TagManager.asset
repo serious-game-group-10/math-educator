@@ -56,6 +56,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Last
+    uniqueID: 4168232341
+    locked: 0
+  - name: SuperBackground
+    uniqueID: 912540827
+    locked: 0
   - name: Background
     uniqueID: 2455459509
     locked: 0
@@ -64,6 +70,9 @@ TagManager:
     locked: 0
   - name: foreground
     uniqueID: 683255757
+    locked: 0
+  - name: SuperForeground
+    uniqueID: 177360523
     locked: 0
   - name: behindFront
     uniqueID: 3337910185

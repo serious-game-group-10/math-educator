@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float speed = 5.0f;
+    [SerializeField] float speed = 1f;
     [SerializeField] float jumpPower = 10f;
     [SerializeField] float movement;
     [SerializeField] bool isFacingRight = true;

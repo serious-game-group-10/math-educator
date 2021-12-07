@@ -30,6 +30,7 @@ public class TextManager : MonoBehaviour
     // start from beginning when help book clicked
     public void DisplayHelpPanel()
     {
+        Debug.Log("display");
         // display help text panel
         helpPanel.SetActive(true);
 
