@@ -22,6 +22,10 @@ TagManager:
   - CloseButton
   - HighScores
   - BackToMenuButton
+  - Question
+  - Overlay
+  - Help
+  - Music
   layers:
   - Default
   - TransparentFX
@@ -56,6 +60,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: VERY END
+    uniqueID: 3819676637
+    locked: 0
   - name: Last
     uniqueID: 4168232341
     locked: 0
@@ -79,4 +86,13 @@ TagManager:
     locked: 0
   - name: front
     uniqueID: 1430745175
+    locked: 0
+  - name: SuperFront
+    uniqueID: 507273073
+    locked: 0
+  - name: First
+    uniqueID: 147367157
+    locked: 0
+  - name: VERY FRONT
+    uniqueID: 193455191
     locked: 0

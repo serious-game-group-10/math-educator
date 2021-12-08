@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float speed = 1f;
-    [SerializeField] float jumpPower = 10f;
+    [SerializeField] float speed = 1.5f;
+    [SerializeField] float jumpPower = 1f;
     [SerializeField] float movement;
     [SerializeField] bool isFacingRight = true;
     [SerializeField] bool isGrounded = true;
@@ -92,10 +92,10 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
-        playerBody.AddForce(new Vector2(0, jumpPower * 30.0f));
-        isGrounded = false;
-        jumpPressed = false;
+        //playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
+        //playerBody.AddForce(new Vector2(0, jumpPower * 30.0f));
+        //isGrounded = false;
+        //jumpPressed = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -106,11 +106,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void takeDamage(int damagePoint)
+    public void TakeDamage(int damagePoint)
     {
         health -= damagePoint;
-
-        gameObject.GetComponent<PlayerHealth>().updateHealth(health);
+        Debug.Log(health);
+        this.gameObject.GetComponent<PlayerHealth>().UpdateHealth(health);
 
         if (health <= 0)
         {

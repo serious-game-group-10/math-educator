@@ -6,20 +6,26 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     private Text text;
+    [SerializeField] Slider healthBar;
 
     private void Start()
     {
-        text = GameObject.Find("PlayerHealthTxt").GetComponent<Text>();
+        if (healthBar == null)
+        {
+            healthBar = GameObject.Find("HealthBar").GetComponent<Slider>();
+        }
+        //text = GameObject.Find("PlayerHealthTxt").GetComponent<Text>();
         defaultHealth();
     }
 
-    public void updateHealth(int currentHealth)
+    public void UpdateHealth(int currentHealth)
     {
-        text.text = "Health: " + currentHealth;
+        healthBar.value = currentHealth;
     }
 
     private void defaultHealth()
     {
-        text.text = "Player: " + 100;
+        healthBar.value = 100;
+        //text.text = "Player: " + 100;
     }
 }

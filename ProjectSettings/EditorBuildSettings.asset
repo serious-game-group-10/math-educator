@@ -12,20 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Introduction.unity
     guid: 1e1426fef1eb6004991dbdfe1627be43
   - enabled: 1
-    path: Assets/Scenes/TransitionToTutorial.unity
-    guid: c1e3d4996d2d2da4d9a4795d6a5f6ad6
+    path: Assets/Scenes/Tutorial 1.unity
+    guid: cd81afc73c11e8b40a0c7e35ef09e555
   - enabled: 1
-    path: Assets/Scenes/Tutorial1.unity
-    guid: 88bd4c82e7dd8e142b9d9bfcf9d844cd
-  - enabled: 1
-    path: Assets/Scenes/Tutorial2.unity
-    guid: ac43f674c811cdf4792bd36c5bf0dba6
-  - enabled: 1
-    path: Assets/Scenes/Tutorial3.unity
-    guid: 8770a7e8829977f4491d72251a8b23ba
-  - enabled: 1
-    path: Assets/Scenes/BossBattle.unity
-    guid: cc4e37514c453d943918a5947767524c
+    path: Assets/Scenes/TutorialBossFight.unity
+    guid: 5701db1640a25934b834a1921e04b032
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 0e1eb10e0be8a624b9f01a6b735131bd

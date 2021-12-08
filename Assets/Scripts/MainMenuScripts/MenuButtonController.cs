@@ -5,136 +5,50 @@ using UnityEngine.SceneManagement;
 
 public class MenuButtonController : MonoBehaviour
 {
-    GameObject[] highScoreObjects;
-    GameObject[] mainMenuObjects;
-    GameObject[] settingMenuObjects;
-    GameObject[] instructionObjects;
-    GameObject backdrop;
-    GameObject backToMenuButton;
-    private int currentSceneIndex = 0;
+    [SerializeField] GameObject mainMenuOverlay;
+    [SerializeField] GameObject settingsPanel;
+    [SerializeField] GameObject instructionsPanel;
+    [SerializeField] GameObject highscorePanel;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        mainMenuObjects = GameObject.FindGameObjectsWithTag("MainScreen");
-        settingMenuObjects = GameObject.FindGameObjectsWithTag("SettingsScreen");
-        instructionObjects = GameObject.FindGameObjectsWithTag("InstructionsScreen");
-        highScoreObjects = GameObject.FindGameObjectsWithTag("HighScores");
-        backdrop = GameObject.FindGameObjectWithTag("SettingBackdrop");
-        backToMenuButton = GameObject.FindGameObjectWithTag("BackToMenuButton");
-
-        this.HideBackToMenuButton();
-        this.HideBackdrop();
-        this.ExitSettingsMenu();
-        this.ExitInstructionsMenu();
-        this.ExitHighScoresMenu();
-        this.EnterMainMenu();
+        mainMenuOverlay = GameObject.FindGameObjectWithTag("Overlay");
+        settingsPanel.SetActive(false);
+        instructionsPanel.SetActive(false);
+        highscorePanel.SetActive(false);
     }
 
-    // play game button function
-    public void StartGame()
+    public void GoToSettings()
     {
-        currentSceneIndex++;
-        SceneManager.LoadScene(currentSceneIndex);
+        Debug.Log("settings");
+        mainMenuOverlay.SetActive(false);
+        settingsPanel.SetActive(true);
     }
 
-
-    // menu screen button operations
-    public void EnterSettingsMenu()
+    public void PlayGame()
     {
-        this.ExitMainMenu();
-        this.ShowBackdrop();
-        foreach (GameObject obj in settingMenuObjects)
-        {
-            obj.SetActive(true);
-        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void EnterInstructionsMenu()
+    public void GoToInstructions()
     {
-        this.ExitMainMenu();
-        this.ShowBackdrop();
-        this.ShowBackToMenuButton();
-        foreach (GameObject obj in instructionObjects)
-        {
-            obj.SetActive(true);
-        }
+        Debug.Log("instructions");
+        mainMenuOverlay.SetActive(false);
+        instructionsPanel.SetActive(true);
     }
 
-    public void EnterHighScoreMenu()
+    public void MainMenu()
     {
-        this.ExitMainMenu();
-        this.ShowBackdrop();
-        this.ShowBackToMenuButton();
-        foreach (GameObject obj in highScoreObjects)
-        {
-            obj.SetActive(true);
-        }
+        settingsPanel.SetActive(false);
+        instructionsPanel.SetActive(false);
+        highscorePanel.SetActive(false);
+        mainMenuOverlay.SetActive(true);
     }
 
-    public void EnterMainMenu()
+    public void GoToHighScores()
     {
-        this.HideBackdrop();
-        this.HideBackToMenuButton();
-        this.ExitSettingsMenu();
-        this.ExitInstructionsMenu();
-        this.ExitHighScoresMenu();
-        foreach (GameObject obj in mainMenuObjects)
-        {
-            obj.SetActive(true);
-        }
-    }
-
-    private void ExitHighScoresMenu()
-    {
-        foreach(GameObject obj in highScoreObjects)
-        {
-            obj.SetActive(false);
-        }
-    }
-
-    private void ExitSettingsMenu()
-    {
-        foreach (GameObject obj in settingMenuObjects)
-        {
-            obj.SetActive(false);
-        }
-    }
-
-    private void ExitInstructionsMenu()
-    {
-        foreach (GameObject obj in instructionObjects)
-        {
-            obj.SetActive(false);
-        }
-    }
-
-    private void ExitMainMenu()
-    {
-        foreach (GameObject obj in mainMenuObjects)
-        {
-            obj.SetActive(false);
-        }
-    }
-
-    // grey transparent backdrop when instruction or setting screen is active
-    private void HideBackdrop()
-    {
-        this.backdrop.SetActive(false);
-    }
-
-    private void ShowBackdrop()
-    {
-        this.backdrop.SetActive(true);
-    }
-
-    public void ShowBackToMenuButton()
-    {
-        backToMenuButton.SetActive(true);
-    }
-
-    private void HideBackToMenuButton()
-    {
-        backToMenuButton.SetActive(false);
+        Debug.Log("HighScores");
+        mainMenuOverlay.SetActive(false);
+        highscorePanel.SetActive(true);
     }
 }

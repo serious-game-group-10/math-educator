@@ -32,7 +32,7 @@ public class PlayerBullet : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Enemy")
         {
-            enemy.GetComponent<Enemy>().takeDamage(BULLET_DAMAGE);
+            enemy.GetComponent<Enemy>().TakeDamage(BULLET_DAMAGE);
             UIBoss.enableUI();
             UIBoss.displayQuestionAndAnswer();
             Destroy(gameObject);

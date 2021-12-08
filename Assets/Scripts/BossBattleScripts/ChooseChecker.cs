@@ -31,7 +31,7 @@ public class ChooseChecker : MonoBehaviour
             if (button.GetComponentInChildren<Text>().text != GameData.instance.getCorrectAnswers()[GameData.instance.getQuestionIndex()])
             {
                 UIBoss.disableUI();
-                enemyWeapon.Shoot();
+                enemyWeapon.RobotAttack();
             }
             else
             {

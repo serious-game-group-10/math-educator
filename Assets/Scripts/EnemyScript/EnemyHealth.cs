@@ -9,17 +9,11 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
-        healthText = GameObject.Find("EnemyHealthTxt").GetComponent<Text>();
-        defaultHealth();
+       // healthText = GameObject.Find("EnemyHealthTxt").GetComponent<Text>();
     }
 
     public void updateHealth(int currentHealth)
     {
-        healthText.text = "Health: " + currentHealth;
-    }
-
-    private void defaultHealth()
-    {
-        healthText.text = "Enemy: " + 100;
+        //healthText.text = "Enemy: " + currentHealth;
     }
 }

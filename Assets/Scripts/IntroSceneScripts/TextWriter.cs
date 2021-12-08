@@ -55,6 +55,4 @@ public class TextWriter : MonoBehaviour
         dialogueSpeed = writeSpeed;
         letterIndex = 0;
     }
-
-
 }

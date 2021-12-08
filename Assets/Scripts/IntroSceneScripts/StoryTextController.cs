@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class StoryTextController : MonoBehaviour
 {
-    private string[] storyText = new string[] {"Hello and welcome to the introduction scene", 
-        "This is where we explain the story of our game and characters", 
-        "But for now we have placeholder text here to test the dialogue sound effects", 
-        "More to come in the near future", 
-        "Thanks for dropping by"};
+    private string[] storyText = new string[] {"The year is 3667.",
+        "The world has been taken over by man-made machines that have risen to become sentient beings.",
+        "Able to feel pain and emotions, the androids became fed up with the Human species and revolted.",
+        "The androids started abducting the humans, taking them to the blackhole called the \"null\" where they would be discarded.",
+        "The story begins with a bright young lad who has been abducted by the androids.",
+        "Desparetely looking for a way out, the young lad makes his way through the android ship..."};
 
     [SerializeField] TextWriter textWriter;
     [SerializeField] Text displayText;
