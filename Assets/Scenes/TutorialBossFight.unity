@@ -293,6 +293,13 @@ MonoBehaviour:
   enemy: {fileID: 2143869271}
   robotEnemy: {fileID: 2143869267}
   uiController: {fileID: 224260397}
+  questionImages:
+  - {fileID: 6448895560068626436}
+  - {fileID: 6448895560068626435}
+  - {fileID: 6448895560068626434}
+  - {fileID: 6448895560068626433}
+  - {fileID: 6448895560068626432}
+  questionIndex: 0
 --- !u!1 &284929547
 GameObject:
   m_ObjectHideFlags: 0
@@ -2933,3 +2940,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df318f970ae8bbc4588dfb357a2f536b, type: 3}
+--- !u!1 &6448895560068626432 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5995618453067891891, guid: df318f970ae8bbc4588dfb357a2f536b, type: 3}
+  m_PrefabInstance: {fileID: 6448895560068626431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6448895560068626433 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5995618454969502763, guid: df318f970ae8bbc4588dfb357a2f536b, type: 3}
+  m_PrefabInstance: {fileID: 6448895560068626431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6448895560068626434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5995618453464115535, guid: df318f970ae8bbc4588dfb357a2f536b, type: 3}
+  m_PrefabInstance: {fileID: 6448895560068626431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6448895560068626435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5995618454789068445, guid: df318f970ae8bbc4588dfb357a2f536b, type: 3}
+  m_PrefabInstance: {fileID: 6448895560068626431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6448895560068626436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5995618452947874541, guid: df318f970ae8bbc4588dfb357a2f536b, type: 3}
+  m_PrefabInstance: {fileID: 6448895560068626431}
+  m_PrefabAsset: {fileID: 0}
