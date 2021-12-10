@@ -26,6 +26,7 @@ public class CameraFollow : MonoBehaviour
         if (player.position.x > fightPosition.position.x && enemy != null) // boss scene
         {
             inFight = true;
+            DataPersistor.instance.setInFight(true);
             PlayerPrefs.SetInt("Fight", 1);
             transform.position = fightPosition.position + new Vector3(0.8f, 0.55f, -5);
         }
@@ -34,6 +35,7 @@ public class CameraFollow : MonoBehaviour
             if (enemy == null)
             {
                 PlayerPrefs.SetInt("Fight", 0);
+                DataPersistor.instance.setInFight(false);
                 inFight = false;
             }
             transform.position = fightPosition.position + new Vector3(0.8f, 0.55f, -5);

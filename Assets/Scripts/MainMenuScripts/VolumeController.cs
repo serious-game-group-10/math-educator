@@ -8,35 +8,20 @@ public class VolumeController : MonoBehaviour
     [SerializeField] Slider volumeSlider;
     [SerializeField] Text volumeText;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        SetGameVolume();
+        volumeSlider.value = DataPersistor.instance.getGameVolume();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void setVolume()
     {
-        AudioListener.volume = volumeSlider.value;
+        DataPersistor.instance.setGameVolume(volumeSlider.value);
+        updateVolumeText();
     }
 
-    public void UpdateVolumeText(float volume)
+    private void updateVolumeText()
     {
-        volume = volume * 100;
-        volumeText.text = volume.ToString("0"); // parameter determines number format (single integer)
-    }
-
-    public void SaveVolumeSetting()
-    {
-        PlayerPrefs.SetFloat("VolumeValue", volumeSlider.value);
-        SetGameVolume();
-    }
-
-    void SetGameVolume()
-    {
-        float volumeValue = PlayerPrefs.GetFloat("VolumeValue");
-        volumeSlider.value = volumeValue;
-        AudioListener.volume = volumeValue;
+        volumeText.text = System.Math.Round(DataPersistor.instance.getGameVolume() * 100).ToString();
     }
 }
 

@@ -45,11 +45,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement = Input.GetAxis("Horizontal");
-
-        if (Input.GetKeyDown("space"))
+        if(!DataPersistor.instance.getInFight())
         {
-            jumpPressed = true;
+            movement = Input.GetAxis("Horizontal");
+        }
+        else
+        {
+            speed = 0f;
         }
     }
 
@@ -70,12 +72,6 @@ public class Player : MonoBehaviour
         if (movement < 0 && isFacingRight || movement > 0 && !isFacingRight)
         {
             Flip();
-        }
-
-        // check if grounded before jump
-        if (jumpPressed && isGrounded)
-        {
-            Jump();
         }
     }
 
@@ -111,6 +107,7 @@ public class Player : MonoBehaviour
         health -= damagePoint;
         Debug.Log(health);
         this.gameObject.GetComponent<PlayerHealth>().UpdateHealth(health);
+        Debug.Log(this.gameObject.GetComponent<PlayerHealth>());
 
         if (health <= 0)
         {

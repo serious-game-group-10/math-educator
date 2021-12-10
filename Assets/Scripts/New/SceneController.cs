@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     [SerializeField] GameObject advanceText;
+    private bool inContact = false;
+ 
 
     private void Start()
     {
@@ -17,9 +19,12 @@ public class SceneController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("a"))
+        if(inContact)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (Input.GetKeyDown("a"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
     }
 
@@ -28,6 +33,17 @@ public class SceneController : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             advanceText.SetActive(true);
+
+            inContact = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            advanceText.SetActive(false);
+            inContact = false;
         }
     }
 }
