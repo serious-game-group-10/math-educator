@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            movement = 0f;
             speed = 0f;
         }
     }
@@ -59,7 +60,7 @@ public class Player : MonoBehaviour
     {
         Movement();
         //changing state if moving or not
-        if (movement > .01 || movement < -.01)
+        if (movement != 0)
             {
                 anim.SetInteger("motion", moving);
             }
