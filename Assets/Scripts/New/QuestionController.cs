@@ -6,9 +6,12 @@ public class QuestionController : MonoBehaviour
 {
     [SerializeField] EnemyWeapon enemy;
     [SerializeField] GameObject robotEnemy;
+    [SerializeField] GameObject player;
+    [SerializeField] Weapon weapon;
     [SerializeField] UIController uiController;
+    [SerializeField] GameObject dialogueUI;
 
-    
+
     [SerializeField] GameObject[] questionImages;
     [SerializeField] int questionIndex = 0;
 
@@ -34,6 +37,16 @@ public class QuestionController : MonoBehaviour
             enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyWeapon>();
         }
 
+        if(player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+
+        if (weapon == null)
+        {
+            weapon = player.GetComponent<Weapon>();
+        }
+
         if (questionImages == null)
         {
             questionImages = GameObject.FindGameObjectsWithTag("Question");
@@ -44,8 +57,6 @@ public class QuestionController : MonoBehaviour
             qImg.SetActive(false);
         }
 
-        Debug.Log(questionIndex);
-        Debug.Log(questionImages.Length);
         questionImages[questionIndex].SetActive(true); // display the first question
         currentQuestionAnswer = correctAnswerList[questionIndex];
     }
@@ -69,15 +80,15 @@ public class QuestionController : MonoBehaviour
         playerAnswer = answerChoice;
         if (playerAnswer == currentQuestionAnswer)
         {
-            robotEnemy.GetComponent<Enemy>().TakeDamage(DAMAGE_PER_CORRECT_QUESTION);
             uiController.HideQuestionPanel();
-            StartCoroutine(CorrectMessage());
+            weapon.ShootOne();
+            DisplayNextQuestion();
         }
         else
         {
             uiController.HideQuestionPanel();
             enemy.RobotAttack();
-            StartCoroutine(IncorrectMessage());
+            IncorrectMessage();
         }
     }
 
@@ -105,22 +116,8 @@ public class QuestionController : MonoBehaviour
         questionIndex++;
     }
 
-    IEnumerator IncorrectMessage()
+    private void IncorrectMessage()
     {
-        yield return new WaitForSeconds(5f);
         uiController.ShowWrong();
-    }
-
-    IEnumerator CorrectMessage()
-    {
-        if (questionIndex < questionImages.Length - 1)
-        {
-            yield return new WaitForSeconds(0.5f);
-            uiController.ShowCorrect();
-            yield return new WaitForSeconds(1f);
-            uiController.ShowNext();
-            yield return new WaitForSeconds(1f);
-            DisplayNextQuestion();
-        }
     }
 }

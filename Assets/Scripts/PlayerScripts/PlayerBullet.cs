@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
-    private const int BULLET_DAMAGE = 10;
+    private const int BULLET_DAMAGE = 20;
     private const float BULLET_SPEED = 5f;
-    private GameObject enemy;
+    private Enemy enemy;
     private Rigidbody2D playerBullet;
-    private GameObject UIDisplay;
-    private UIBoss UIBoss;
+    private UIController uIController;
 
     void Start()
     {
+        if(enemy == null)
+        {
+            enemy = GameObject.Find("Enemy").GetComponent<Enemy>();
+        }
+
+        if(uIController == null)
+        {
+            uIController = GameObject.Find("LevelController").GetComponent<UIController>();
+        }
+
         playerBullet = gameObject.GetComponent<Rigidbody2D>();
-        enemy = GameObject.Find("Boss");
-        UIDisplay = GameObject.Find("UIDisplay");
-        UIBoss = UIDisplay.GetComponent<UIBoss>();
     }
 
     void Update()
@@ -33,8 +39,6 @@ public class PlayerBullet : MonoBehaviour
         else if (collision.gameObject.tag == "Enemy")
         {
             enemy.GetComponent<Enemy>().TakeDamage(BULLET_DAMAGE);
-            UIBoss.enableUI();
-            UIBoss.displayQuestionAndAnswer();
             Destroy(gameObject);
         }
     }

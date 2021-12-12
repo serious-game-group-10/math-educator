@@ -42,19 +42,19 @@ public class ChooseChecker : MonoBehaviour
         }else {
             if(button.GetComponentInChildren<Text>().text == GameData.instance.getAttackMovesArray()[0])
             {
-                playerWeapon.Shoot();
+                playerWeapon.ShootOne();
                 UIBoss.disableUI();
             } else if(button.GetComponentInChildren<Text>().text == GameData.instance.getAttackMovesArray()[1])
             {
-                playerWeapon.Shoot();
+                playerWeapon.ShootOne();
                 UIBoss.disableUI();
             } else if(button.GetComponentInChildren<Text>().text == GameData.instance.getAttackMovesArray()[2])
             {
-                playerWeapon.Shoot();
+                playerWeapon.ShootOne();
                 UIBoss.disableUI();
             } else if(button.GetComponentInChildren<Text>().text == GameData.instance.getAttackMovesArray()[3])
             {
-                playerWeapon.Shoot();
+                playerWeapon.ShootOne();
                 UIBoss.disableUI();
             }
         }

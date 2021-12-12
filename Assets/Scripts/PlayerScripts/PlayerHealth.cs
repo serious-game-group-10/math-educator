@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private Text text;
     [SerializeField] Slider healthBar;
 
     private void Start()
@@ -14,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
         {
             healthBar = GameObject.Find("HealthBar").GetComponent<Slider>();
         }
-        //text = GameObject.Find("PlayerHealthTxt").GetComponent<Text>();
+
         defaultHealth();
     }
 
@@ -26,6 +25,5 @@ public class PlayerHealth : MonoBehaviour
     private void defaultHealth()
     {
         healthBar.value = 100;
-        //text.text = "Player: " + 100;
     }
 }

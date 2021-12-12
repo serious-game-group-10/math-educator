@@ -4,18 +4,30 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public Transform firePoint;
-    public GameObject bulletPrefab;
-    [SerializeField] AudioSource fireBulletSound;
+    [SerializeField] Transform firePoint;
+    [SerializeField] GameObject bulletPrefab;
 
-    private void Start()
-    {
-        fireBulletSound = GetComponent<AudioSource>();
-    }
-
-    public void Shoot()
+    //Attack Style One
+    public void ShootOne()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        AudioSource.PlayClipAtPoint(fireBulletSound.clip, transform.position);
+    }
+
+    //Attack Style Two
+    public void ShootTwo()
+    {
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+    }
+
+    //Attack Style Three
+    public void ShootThree()
+    {
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+    }
+
+    //Attack Style Four
+    public void ShootFour()
+    {
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 }

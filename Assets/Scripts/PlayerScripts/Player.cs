@@ -7,26 +7,23 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [SerializeField] float speed = 1.5f;
-    [SerializeField] float jumpPower = 1f;
     [SerializeField] float movement;
     [SerializeField] bool isFacingRight = true;
     [SerializeField] bool isGrounded = true;
     [SerializeField] bool jumpPressed = false;
+    [SerializeField] Animator anim;
+    const int idle = 0;
+    const int moving = 1;
     [SerializeField] Rigidbody2D playerBody;
     
-    [SerializeField] Text healthText;
-    [SerializeField] int health = 5;
+    [SerializeField] int health;
+
     public static Player Instance;
 
     private void Awake()
     {
         Instance = this;
     }
-
-    [SerializeField] Animator anim;
-    const int idle = 0;
-    const int moving = 1;
-
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +36,7 @@ public class Player : MonoBehaviour
         {
             playerBody = GetComponent<Rigidbody2D>();
         }
+
         health = 100;
     }
 
@@ -48,6 +46,7 @@ public class Player : MonoBehaviour
         if(!DataPersistor.instance.getInFight())
         {
             movement = Input.GetAxis("Horizontal");
+            speed = 1.5f;
         }
         else
         {
@@ -87,14 +86,6 @@ public class Player : MonoBehaviour
         isFacingRight = !isFacingRight;
     }
 
-    private void Jump()
-    {
-        //playerBody.velocity = new Vector2(playerBody.velocity.x, 0);
-        //playerBody.AddForce(new Vector2(0, jumpPower * 30.0f));
-        //isGrounded = false;
-        //jumpPressed = false;
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Floor")
@@ -106,9 +97,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damagePoint)
     {
         health -= damagePoint;
-        Debug.Log(health);
         this.gameObject.GetComponent<PlayerHealth>().UpdateHealth(health);
-        Debug.Log(this.gameObject.GetComponent<PlayerHealth>());
 
         if (health <= 0)
         {

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class RobotDialogue : MonoBehaviour
 {
+    private int dialogueLevel = 0;
+
     private string[] storyText = new string[] 
     {
         "Scanning lifeform........",
@@ -75,5 +77,10 @@ public class RobotDialogue : MonoBehaviour
     private void ShowNewMessage(string newText)
     {
         textWriter.AddTextDialogue(displayText, newText, TEXT_WRITING_SPEED);
+    }
+
+    public int getDialogueLevel()
+    {
+        return dialogueLevel;
     }
 }

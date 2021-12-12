@@ -20,7 +20,7 @@ public class CameraFollow : MonoBehaviour
         transform.position = startPosition.transform.position + new Vector3(0.8f, 0.55f, -5);
         PlayerPrefs.SetInt("Fight", 0);
     }
-    
+
     private void Update()
     {
         if (player.position.x > fightPosition.position.x && enemy != null) // boss scene
@@ -49,6 +49,4 @@ public class CameraFollow : MonoBehaviour
             transform.position = player.transform.position + new Vector3(0.8f, 0.55f, -5);
         }
     }
-
-
 }
