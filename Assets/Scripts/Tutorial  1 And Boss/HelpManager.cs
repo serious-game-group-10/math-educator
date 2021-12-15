@@ -17,7 +17,7 @@ public class HelpManager : MonoBehaviour
         nextButton = GameObject.Find("NextButton");
         prevButton = GameObject.Find("PreviousButton");
         pageText = GameObject.Find("PageNumber");
-        helpScreen = GameObject.Find("HelpScreen");
+        helpScreen = GameObject.Find("ComputerScreen");
 
         helpIndex = 0;
         if (helpImages == null)

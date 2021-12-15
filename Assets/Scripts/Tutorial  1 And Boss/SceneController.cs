@@ -9,11 +9,10 @@ public class SceneController : MonoBehaviour
     [SerializeField] GameObject advanceText;
     private bool inContact = false;
  
-
     private void Start()
     {
         advanceText = GameObject.Find("AdvanceText");
-        advanceText.GetComponent<Text>().text = "Press a to advance";
+        advanceText.GetComponent<Text>().text = "Press \"z\" to advance";
         advanceText.SetActive(false);
     }
 
@@ -21,7 +20,7 @@ public class SceneController : MonoBehaviour
     {
         if(inContact)
         {
-            if (Input.GetKeyDown("a"))
+            if (Input.GetKeyDown("z"))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }

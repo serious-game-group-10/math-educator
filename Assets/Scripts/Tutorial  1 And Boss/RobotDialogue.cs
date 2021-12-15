@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class RobotDialogue : MonoBehaviour
 {
-    private int dialogueLevel = 0;
-
     private string[] storyText = new string[] 
     {
         "Scanning lifeform........",
@@ -20,19 +18,17 @@ public class RobotDialogue : MonoBehaviour
     private string wrongText = "Error... error... wrong answer was chosen...";
     private string correctText = "Correct...";
     private string nextText = "Here is the next question...";
-
+    private string victoryText = "The robot exploded...";
 
     [SerializeField] GameObject uiController;
-    [SerializeField] TextWriter textWriter;
     [SerializeField] Text displayText;
     [SerializeField] int textIndex;
-    [SerializeField] const float TEXT_WRITING_SPEED = 0.08f;
 
     private void Start()
     {
         if (uiController == null)
         {
-            uiController = GameObject.Find("LevelController");
+            uiController = GameObject.Find("GUIcontroller");
         }
         textIndex = 0;
         UpdateStoryTextDisplay();
@@ -54,33 +50,28 @@ public class RobotDialogue : MonoBehaviour
 
     private void UpdateStoryTextDisplay()
     {
-        // write text to UI display using utility class
-        textWriter.AddTextDialogue(displayText, storyText[textIndex], TEXT_WRITING_SPEED);
+        // write text to UI display 
+        displayText.text = storyText[textIndex];
         textIndex++;
     }
 
     public void ShowWrongAnswerMessage()
     {
-        ShowNewMessage(wrongText);
+        displayText.text = wrongText;
     }
 
     public void ShowRightAnswerMessage()
     {
-        ShowNewMessage(correctText);
+        displayText.text = correctText;
     }
    
     public void ShowNextMessage()
     {
-        ShowNewMessage(nextText);
+        displayText.text = nextText;
     }
 
-    private void ShowNewMessage(string newText)
+    public void ShowVictoryMessage()
     {
-        textWriter.AddTextDialogue(displayText, newText, TEXT_WRITING_SPEED);
-    }
-
-    public int getDialogueLevel()
-    {
-        return dialogueLevel;
+        displayText.text = victoryText;
     }
 }

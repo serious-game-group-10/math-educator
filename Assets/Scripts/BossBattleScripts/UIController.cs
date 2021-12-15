@@ -43,13 +43,16 @@ public class UIController : MonoBehaviour
         dialogueUI.SetActive(false);
     }
 
+
+    // dialogue messages
+
     public void ShowNext()
     {
         DisplayDialogueBox();
         dialogueUI.GetComponent<RobotDialogue>().ShowNextMessage();
     }
 
-    public void ShowWrong()
+    public void ShowIncorrect()
     {
         DisplayDialogueBox();
         dialogueUI.GetComponent<RobotDialogue>().ShowWrongAnswerMessage();
@@ -59,5 +62,11 @@ public class UIController : MonoBehaviour
     {
         DisplayDialogueBox();
         dialogueUI.GetComponent<RobotDialogue>().ShowRightAnswerMessage();
+    }
+
+    public void ShowVictory()
+    {
+        DisplayDialogueBox();
+        dialogueUI.GetComponent<RobotDialogue>().ShowVictoryMessage();
     }
 }
