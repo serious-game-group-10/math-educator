@@ -14,13 +14,17 @@ public class Enemy : MonoBehaviour
             anim = GetComponent<Animator>();
         }
 
-        enemyHealth = GetComponent<EnemyHealth>();
+        if(enemyHealth == null)
+        {
+            enemyHealth = GetComponent<EnemyHealth>();
+        }
         health = 100;
     }
 
     public void TakeDamage(int damagePoint)
     {
         health -= damagePoint;
+        enemyHealth.updateHealth(health);
 
         if (health <= 0)
         {

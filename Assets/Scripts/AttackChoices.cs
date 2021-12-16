@@ -6,11 +6,14 @@ using UnityEngine.UI;
 public class AttackChoices : MonoBehaviour
 {
     [SerializeField] private GameObject attackChoicesPanel;
-    [SerializeField] private Weapon weapon;
+     private Weapon weapon;
 
     void Start()
     {
-        
+        if(weapon == null)
+        {
+            weapon = GameObject.Find("Player").GetComponent<Weapon>();
+        }
     }
 
     void Update()
@@ -33,7 +36,7 @@ public class AttackChoices : MonoBehaviour
         //}
     }
 
-    public void checkAttackChoices(int answerChoice)
+    private void checkAttackChoices(int answerChoice)
     {
        if(answerChoice == 1)
         {

@@ -5,15 +5,25 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    private Text healthText;
+    [SerializeField] Slider healthBar;
 
     private void Start()
     {
-       // healthText = GameObject.Find("EnemyHealthTxt").GetComponent<Text>();
+        if (healthBar == null)
+        {
+            healthBar = GameObject.Find("EnemyHealthBar").GetComponent<Slider>();
+        }
+
+        defaultHealth();
     }
 
     public void updateHealth(int currentHealth)
     {
-        //healthText.text = "Enemy: " + currentHealth;
+        healthBar.value = currentHealth;
+    }
+
+    private void defaultHealth()
+    {
+        healthBar.value = 100;
     }
 }

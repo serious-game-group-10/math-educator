@@ -9,6 +9,7 @@ public class QuestionController : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] Weapon weapon;
     [SerializeField] UIController uiController;
+    [SerializeField] GameObject attackChoicesPanel;
 
 
     [SerializeField] GameObject[] questionImages;
@@ -38,6 +39,9 @@ public class QuestionController : MonoBehaviour
         if (questionImages == null)
             questionImages = GameObject.FindGameObjectsWithTag("Question");
 
+        if (attackChoicesPanel == null)
+            attackChoicesPanel = GameObject.Find("AttackChoicesPanel");
+
         // hide all the questions
         foreach (GameObject qImg in questionImages)
             qImg.SetActive(false);
@@ -46,7 +50,7 @@ public class QuestionController : MonoBehaviour
         currentQuestionAnswer = correctAnswerList[questionIndex]; // set the correct answer choice
     }
 
-    private void DisplayNextQuestion()
+    public void DisplayNextQuestion()
     {
         IncrementQuestionCounter();
 
@@ -78,8 +82,9 @@ public class QuestionController : MonoBehaviour
         if (playerAnswer == currentQuestionAnswer)
         {
             uiController.HideQuestionPanel();
+            attackChoicesPanel.SetActive(true);
             //weapon.ShootOne();
-            DisplayNextQuestion();
+            //DisplayNextQuestion();
         }
         else
         {
