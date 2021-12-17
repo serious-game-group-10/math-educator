@@ -36,13 +36,13 @@ public class QuestionController : MonoBehaviour
         if (weapon == null)
             weapon = player.GetComponent<Weapon>();
 
-        if (questionImages == null)
-            questionImages = GameObject.FindGameObjectsWithTag("Question");
-
         if (attackChoicesPanel == null)
             attackChoicesPanel = GameObject.Find("AttackChoicesPanel");
 
-        // hide all the questions
+        // Coding Questions
+        if (questionImages == null)
+            questionImages = GameObject.FindGameObjectsWithTag("Question");
+
         foreach (GameObject qImg in questionImages)
             qImg.SetActive(false);
 
@@ -64,7 +64,7 @@ public class QuestionController : MonoBehaviour
         else
         {
             uiController.HideQuestionPanel();
-            uiController.ShowVictory();
+            //uiController.ShowVictory();
             Debug.Log("Finish");
 
             /* 
