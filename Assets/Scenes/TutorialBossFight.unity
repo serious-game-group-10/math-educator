@@ -1747,6 +1747,22 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 3483716882242250711, guid: a63faff1fe5c641bab3408e0fa20a47d, type: 3}
+    - target: {fileID: 5395417090065135828, guid: c525464bbf0115a408cc8a6600dfd8ea, type: 3}
+      propertyPath: bulletPrefab1
+      value: 
+      objectReference: {fileID: 3483716882242250711, guid: a63faff1fe5c641bab3408e0fa20a47d, type: 3}
+    - target: {fileID: 5395417090065135828, guid: c525464bbf0115a408cc8a6600dfd8ea, type: 3}
+      propertyPath: bulletPrefab2
+      value: 
+      objectReference: {fileID: 6689498749818526887, guid: e5f0f463e8b12458fbd2455ea33eb36e, type: 3}
+    - target: {fileID: 5395417090065135828, guid: c525464bbf0115a408cc8a6600dfd8ea, type: 3}
+      propertyPath: bulletPrefab3
+      value: 
+      objectReference: {fileID: 7884734149158116196, guid: b185eb450a10b4b8f8f276ac8a52896e, type: 3}
+    - target: {fileID: 5395417090065135828, guid: c525464bbf0115a408cc8a6600dfd8ea, type: 3}
+      propertyPath: bulletPrefab4
+      value: 
+      objectReference: {fileID: 894818727248816501, guid: bf0e4a5af9e834c7098e823723de4363, type: 3}
     - target: {fileID: 5395417090065135829, guid: c525464bbf0115a408cc8a6600dfd8ea, type: 3}
       propertyPath: healthBar
       value: 
