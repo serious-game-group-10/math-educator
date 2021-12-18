@@ -15,7 +15,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial 1.unity
     guid: cd81afc73c11e8b40a0c7e35ef09e555
   - enabled: 1
-    path: Assets/Scenes/TutorialBossFight.unity
+    path: Assets/Scenes/TutorialBossFight 1.unity
+    guid: a54e3ecfc81b0a74dbbde13cb0815bc1
+  - enabled: 1
+    path: Assets/Scenes/TutorialBossFight2.unity
+    guid: 3a553736c5e22ca4486905dcd45e3c9d
+  - enabled: 1
+    path: Assets/Scenes/TutorialBossFight3.unity
     guid: 5701db1640a25934b834a1921e04b032
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
