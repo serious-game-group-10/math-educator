@@ -32,7 +32,8 @@ public class HelpManager : MonoBehaviour
 
         helpImages[helpIndex].SetActive(true);
         prevButton.SetActive(false);
-        UpdatePageNumber();ChangeButtonToClose();
+        UpdatePageNumber();
+        ChangeButtonToClose();
     }
 
     public void DisplayNextHelp()

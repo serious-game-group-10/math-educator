@@ -10,7 +10,6 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] Transform fightPosition;
     [SerializeField] Transform startPosition;
     [SerializeField] Transform endPosition;
-    [SerializeField] bool inFight = false;
 
     private void Start()
     {
@@ -31,17 +30,21 @@ public class CameraFollow : MonoBehaviour
         {
             transform.position = startPosition.position + new Vector3(0.8f, 0.55f, -5);
         }
+        else if (player.position.x > startPosition.position.x && player.position.x < fightPosition.position.x)
+        {
+            transform.position = player.position + new Vector3(0.8f, 0.55f, -5);
+        }
         else if (player.position.x >= fightPosition.position.x && enemy != null)
         {
             transform.position = fightPosition.position + new Vector3(0.8f, 0.55f, -5);
             DataPersistor.instance.setInFight(true);
             Debug.Log(DataPersistor.instance.getInFight());
         }
-        else if (player.position.x > startPosition.position.x && player.position.x < fightPosition.position.x ||
-            player.position.x > fightPosition.position.x && player.position.x < endPosition.position.x) 
+        else if (player.position.x >= fightPosition.position.x && player.position.x < endPosition.position.x) 
         {
+            DataPersistor.instance.setInFight(false);
+            Debug.Log(DataPersistor.instance.getInFight());
             transform.position = player.position + new Vector3(0.8f, 0.55f, -5);
         }
-        
     }
 }

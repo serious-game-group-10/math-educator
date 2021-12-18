@@ -17,11 +17,12 @@ public class EnemyBullet : MonoBehaviour
             enemyBullet = GetComponent<Rigidbody2D>();
         }
 
+
         EnemyBulletMovement();
         Destroy(this.gameObject, 3f);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -34,8 +35,5 @@ public class EnemyBullet : MonoBehaviour
     {
         Vector2 force = (player.transform.position - transform.position).normalized * BULLET_SPEED;
         enemyBullet.velocity = new Vector2(force.x, force.y);
-
-        float rotationAngle = Mathf.Atan2(force.y, force.x) * Mathf.Rad2Deg;
-        enemyBullet.rotation = rotationAngle;
     }
 }
