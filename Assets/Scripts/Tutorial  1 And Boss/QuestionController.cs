@@ -15,7 +15,7 @@ public class QuestionController : MonoBehaviour
     [SerializeField] GameObject[] questionImages;
     [SerializeField] int questionIndex = 0;
 
-    private int[] correctAnswerList = { 1, 3, 4, 2, 3 };
+    private int[] correctAnswerList = { 1, 3, 4, 2, 3, 3, 3, 3, 1, 1, 2, 2, 2, 4, 1 };
     private int currentQuestionAnswer;
     private int playerAnswer;
 
