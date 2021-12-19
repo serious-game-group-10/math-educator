@@ -39,9 +39,10 @@ public class DisplayHighscore : MonoBehaviour
 
     public void displayOne()
     {
+        //Debug.Log("The score is" + DataPersistor.instance.getHighscoreDB()[0].getCurrentScore());
         if (DataPersistor.instance.getHighscoreDB()[0] == null)
         {
-
+          
         }
         else
         {

@@ -4502,16 +4502,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6bcba57e09be46f38f3ef4662f48977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highScoreOne: {fileID: 0}
-  highScoreNameOne: {fileID: 0}
-  highScoreTwo: {fileID: 0}
-  highScoreNameTwo: {fileID: 0}
-  highScoreThree: {fileID: 0}
-  highScoreNameThree: {fileID: 0}
-  highScoreFour: {fileID: 0}
-  highScoreNameFour: {fileID: 0}
-  highScoreFive: {fileID: 0}
-  highScoreNameFive: {fileID: 0}
+  highScoreOne: {fileID: 1178134920}
+  highScoreNameOne: {fileID: 1058374117}
+  highScoreTwo: {fileID: 647409060}
+  highScoreNameTwo: {fileID: 1574060372}
+  highScoreThree: {fileID: 2043040477}
+  highScoreNameThree: {fileID: 1369041085}
+  highScoreFour: {fileID: 245527535}
+  highScoreNameFour: {fileID: 1026469151}
+  highScoreFive: {fileID: 120358910}
+  highScoreNameFive: {fileID: 1096274807}
 --- !u!223 &9101371348255059229
 Canvas:
   m_ObjectHideFlags: 0

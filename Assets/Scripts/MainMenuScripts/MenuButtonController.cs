@@ -34,7 +34,6 @@ public class MenuButtonController : MonoBehaviour
 
     public void GoToInstructions()
     {
-        Debug.Log("instructions");
         mainMenuOverlay.SetActive(false);
         instructionsPanel.SetActive(true);
     }
@@ -49,7 +48,6 @@ public class MenuButtonController : MonoBehaviour
 
     public void GoToHighScores()
     {
-        Debug.Log("HighScores");
         mainMenuOverlay.SetActive(false);
         highscorePanel.SetActive(true);
         DisplayHighscore highscore = highscorePanel.GetComponent<DisplayHighscore>();

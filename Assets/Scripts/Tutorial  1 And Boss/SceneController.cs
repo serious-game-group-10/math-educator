@@ -24,11 +24,6 @@ public class SceneController : MonoBehaviour
         {
             if (Input.GetKeyDown("z"))
             {
-                if (SceneManager.GetActiveScene().buildIndex == 5)
-                {
-                    DataPersistor.instance.addHighScore();
-                }
-
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }

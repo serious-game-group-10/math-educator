@@ -10,6 +10,7 @@ public class DataPersistor : MonoBehaviour
     private string playerName;
     private Highscore[] highscoreDB;
     private int playerHealth;
+    private int length;
 
     public static DataPersistor instance = null;
 
@@ -22,6 +23,7 @@ public class DataPersistor : MonoBehaviour
         else
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -33,6 +35,7 @@ public class DataPersistor : MonoBehaviour
         playerHealth = 100;
         playerName = "Unkown Player";
         highscoreDB = new Highscore[5];
+        length = 0;
     }
 
     public void setGameVolume(float gameVolume)
@@ -103,22 +106,31 @@ public class DataPersistor : MonoBehaviour
             if (highscoreDB[i] == null)
             {
                 highscoreDB[i] = new Highscore(playerName, currentScore);
+                this.length++;
                 return;
             }
         }
-        bubbleSort(highscoreDB);
+
+        if (this.length != 0 || this.length != 1)
+        {
+            bubbleSort(highscoreDB);
+        }
     }
 
     private void bubbleSort(Highscore[] highscore)
     {
-        int n = highscore.Length;
+        int n = this.length;
         for (int i = 0; i < n - 1; i++)
+        {
             for (int j = 0; j < n - i - 1; j++)
+            {
                 if (highscore[j].getCurrentScore() < highscore[j + 1].getCurrentScore())
                 {
                     Highscore temp = highscore[j];
                     highscore[j] = highscore[j + 1];
                     highscore[j + 1] = temp;
                 }
+            }
+        }
     }
 }

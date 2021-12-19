@@ -36,11 +36,10 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 5)
+        if (SceneManager.GetActiveScene().buildIndex == 5)
         {
             DataPersistor.instance.addHighScore();
         }
-
         Destroy(this.gameObject);
     }
 }
