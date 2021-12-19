@@ -9,8 +9,6 @@ public class Player : MonoBehaviour
     [SerializeField] float speed = 1.5f;
     [SerializeField] float movement;
     [SerializeField] bool isFacingRight = true;
-    [SerializeField] bool isGrounded = true;
-    [SerializeField] bool jumpPressed = false;
     [SerializeField] Animator anim;
     const int idle = 0;
     const int moving = 1;
@@ -43,16 +41,16 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(!DataPersistor.instance.getInFight())
-        //{
+        if(!DataPersistor.instance.getInFight())
+        {
             movement = Input.GetAxis("Horizontal");
             speed = 1.5f;
-        //}
-        //else
-        //{
-         //   movement = 0f;
-         //   speed = 0f;
-        //}
+        }
+        else
+        {
+            movement = 0f;
+            speed = 0f;
+        }
     }
 
     private void FixedUpdate()
@@ -84,14 +82,6 @@ public class Player : MonoBehaviour
     {
         this.transform.Rotate(0, 180, 0);
         isFacingRight = !isFacingRight;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Floor")
-        {
-            isGrounded = true;
-        }
     }
 
     public void TakeDamage(int damagePoint)

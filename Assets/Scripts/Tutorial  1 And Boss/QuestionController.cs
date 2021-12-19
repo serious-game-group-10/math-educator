@@ -64,15 +64,7 @@ public class QuestionController : MonoBehaviour
         else
         {
             uiController.HideQuestionPanel();
-            //uiController.ShowVictory();
             Debug.Log("Finish");
-
-            /* 
-             Normally the enemy player would die and be null
-            but something is wrong with the player bullet so the enemy does not die
-            This causes the question panel to show up empty because the enemy is still alive
-            The Main Camera script checks if enemy is null or not
-             */
         }
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     private const int BULLET_DAMAGE = 20;
-    private const float BULLET_SPEED = 1f;
+    private const float BULLET_SPEED = 3f;
     private GameObject enemy;
     private Rigidbody2D playerBullet;
     private QuestionController QuestionController;
