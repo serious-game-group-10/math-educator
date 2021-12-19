@@ -43,16 +43,16 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!DataPersistor.instance.getInFight())
-        {
+        //if(!DataPersistor.instance.getInFight())
+        //{
             movement = Input.GetAxis("Horizontal");
             speed = 1.5f;
-        }
-        else
-        {
-            movement = 0f;
-            speed = 0f;
-        }
+        //}
+        //else
+        //{
+         //   movement = 0f;
+         //   speed = 0f;
+        //}
     }
 
     private void FixedUpdate()

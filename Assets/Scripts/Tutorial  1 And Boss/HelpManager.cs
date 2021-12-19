@@ -6,111 +6,144 @@ using UnityEngine.UI;
 public class HelpManager : MonoBehaviour
 {
     GameObject[] helpImages;
-    GameObject nextButton;
-    GameObject prevButton;
-    GameObject pageText;
-    GameObject helpScreen;
+    HelpScreenController screenController;
+    GameObject prevBtn;
+    GameObject nextBtn;
+
     private int helpIndex;
+    private int upperLimit;
+    private int lowerLimit;
 
     private void Start()
     {
-        nextButton = GameObject.Find("NextButton");
-        prevButton = GameObject.Find("PreviousButton");
-        pageText = GameObject.Find("PageNumber");
-        helpScreen = GameObject.Find("ComputerScreen");
 
-        helpIndex = 0;
+        if (screenController == null)
+        {
+            screenController = GameObject.Find("ComputerController").GetComponent<HelpScreenController>();
+        }
+
+        if (prevBtn == null)
+        {
+            prevBtn = GameObject.Find("PreviousButton");
+        }
+
+        if (nextBtn == null)
+        {
+            nextBtn = GameObject.Find("NextButton");
+        }
+
         if (helpImages == null)
         {
             helpImages = GameObject.FindGameObjectsWithTag("Help");
         }
 
-        foreach (GameObject helpImg in helpImages)
+        foreach (GameObject img in helpImages)
         {
-            helpImg.SetActive(false);
+            img.SetActive(false);
         }
-
-        helpImages[helpIndex].SetActive(true);
-        prevButton.SetActive(false);
-        UpdatePageNumber();
-        ChangeButtonToClose();
     }
 
-    public void DisplayNextHelp()
-    {
-        helpImages[helpIndex].SetActive(false);
-        helpIndex++;
-        prevButton.SetActive(true);
 
-        if (helpIndex >= helpImages.Length)
+    // screen buttons
+
+    public void DisplayNextImage()
+    {
+        HideCurrentImage();
+        
+        SetHelpIndex(helpIndex + 1);
+        if (helpIndex > upperLimit)
         {
             CloseHelpScreen();
             return;
         }
 
-        helpImages[helpIndex].SetActive(true);
-        DisplayPreviousButton();
-        UpdatePageNumber();
-        ChangeButtonToClose();
+        DisplayCurrentImage();
+        ShowPrevBtn();
     }
 
-    public void DisplayPreviousHelp()
+    public void DisplayPreviousImage()
     {
-        helpImages[helpIndex].SetActive(false);
-        helpIndex--;
+        HideCurrentImage();
 
-        if (helpIndex <= 0)
+        SetHelpIndex(helpIndex - 1);
+        if (helpIndex <= lowerLimit)
         {
-            HidePreviousButton();
+            HidePrevBtn();
         }
 
-        helpImages[helpIndex].SetActive(true);
-        UpdatePageNumber();
-        ChangeButtonToClose();
-    }
-
-    private void DisplayPreviousButton()
-    {
-        prevButton.SetActive(true);
-    }
-
-    private void HidePreviousButton()
-    {
-        prevButton.SetActive(false);
-    }
-
-    private void UpdatePageNumber()
-    {
-        pageText.GetComponent<Text>().text = (helpIndex + 1) + " / 3";
-    }
-
-    private void ChangeButtonToClose()
-    {
-        if (helpIndex >= helpImages.Length - 1)
-        {
-            nextButton.GetComponentInChildren<Text>().text = "Close";
-        }
-        else
-        {
-            nextButton.GetComponentInChildren<Text>().text = "Next";
-        }
+        DisplayCurrentImage();
     }
 
     public void CloseHelpScreen()
+    {
+        HideImages();
+        screenController.HideHelpScreen();
+    }
+
+   
+    // called by screen controller
+
+    public void DisplayFirstImage()
+    {
+        DisplayCurrentImage();
+        HidePrevBtn();
+    }
+
+    public void SetHelpIndex(int index)
+    {
+        this.helpIndex = index;
+    }
+
+    public void SetUpperLimit(int limit)
+    {
+        this.upperLimit = limit;
+    }
+
+    public void SetLowerLimit(int limit)
+    {
+        this.lowerLimit = limit;
+    }
+
+
+    // helpers
+    private void HideCurrentImage()
+    {
+        helpImages[helpIndex].SetActive(false);
+    }
+
+    private void DisplayCurrentImage()
+    {
+        helpImages[helpIndex].SetActive(true);
+        SetTextNextToClose();
+    }
+
+    private void HidePrevBtn()
+    {
+        prevBtn.SetActive(false);
+    }
+
+    private void ShowPrevBtn()
+    {
+        prevBtn.SetActive(true);
+    }
+
+    private void SetTextNextToClose()
+    {
+        if (helpIndex >= upperLimit)
+        {
+            nextBtn.GetComponentInChildren<Text>().text = "Close";
+        }
+        else
+        {
+            nextBtn.GetComponentInChildren<Text>().text = "Next";
+        }
+    }
+
+    private void HideImages()
     {
         foreach (GameObject img in helpImages)
         {
             img.SetActive(false);
         }
-
-        helpIndex = 0;
-        helpImages[helpIndex].SetActive(true);
-
-        HidePreviousButton();
-        ChangeButtonToClose();
-        UpdatePageNumber();
-        helpScreen.SetActive(false);
-
-        Time.timeScale = 1;
     }
 }
