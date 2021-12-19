@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class QuestionController : MonoBehaviour
 {
@@ -14,13 +15,19 @@ public class QuestionController : MonoBehaviour
 
     [SerializeField] GameObject[] questionImages;
     [SerializeField] int questionIndex = 0;
-    //3, 3, 3, 1, 1, 2, 2, 2, 4, 1
-    private int[] correctAnswerList = { 1, 3, 4, 2, 3 };
+    private int[] correctAnswerList;
     private int currentQuestionAnswer;
     private int playerAnswer;
 
     private void Start()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+            correctAnswerList = new int[] { 1, 3, 4, 2, 3 };
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+            correctAnswerList = new int[] { 2, 1, 4, 3, 1 };
+        if (SceneManager.GetActiveScene().buildIndex == 5)
+            correctAnswerList = new int[] { 2, 4, 3, 2, 4 };
+
         if (robotEnemy == null)
             robotEnemy = GameObject.Find("Enemy");
 
