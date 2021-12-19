@@ -60,6 +60,9 @@ public class QuestionController : MonoBehaviour
 
         questionImages[questionIndex].SetActive(true); // display the first question
         currentQuestionAnswer = correctAnswerList[questionIndex]; // set the correct answer choice
+        Debug.Log("Update Score");
+        scoreText.text = "Score: " + DataPersistor.instance.getCurrentScore();
+
     }
 
     public void DisplayNextQuestion()

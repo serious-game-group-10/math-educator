@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TutorialBossFight3.unity
     guid: 5701db1640a25934b834a1921e04b032
   - enabled: 1
+    path: Assets/Scenes/VictoryEnd.unity
+    guid: 3bd0bd48948dea947abc1c5e627a4f04
+  - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 0e1eb10e0be8a624b9f01a6b735131bd
   m_configObjects: {}

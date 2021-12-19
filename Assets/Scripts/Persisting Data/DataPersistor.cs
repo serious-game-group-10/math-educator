@@ -87,7 +87,7 @@ public class DataPersistor : MonoBehaviour
 
     public int getPlayerHealth()
     {
-        return playerHealth];
+        return playerHealth;
     }
 
     public void gameReset()
