@@ -24,6 +24,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void defaultHealth()
     {
-        healthBar.value = 100;
+        healthBar.value = DataPersistor.instance.getPlayerHealth();
     }
 }

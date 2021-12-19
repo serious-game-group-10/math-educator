@@ -9,6 +9,7 @@ public class DataPersistor : MonoBehaviour
     private int currentScore;
     private string playerName;
     private Highscore[] highscoreDB;
+    private int playerHealth;
 
     public static DataPersistor instance = null;
 
@@ -29,6 +30,7 @@ public class DataPersistor : MonoBehaviour
         gameVolume = 0.5f;
         inFight = false;
         currentScore = 0;
+        playerHealth = 100;
         playerName = "Unkown Player";
         highscoreDB = new Highscore[5];
     }
@@ -46,6 +48,11 @@ public class DataPersistor : MonoBehaviour
     public void setPlayername(string playerName)
     {
         this.playerName = playerName;
+    }
+
+    public void setPlayerHealth(int playerHealth)
+    {
+        this.playerHealth = playerHealth;
     }
 
     public void addScore()
@@ -76,6 +83,11 @@ public class DataPersistor : MonoBehaviour
     public float getGameVolume()
     {
         return gameVolume;
+    }
+
+    public int getPlayerHealth()
+    {
+        return playerHealth];
     }
 
     public void gameReset()

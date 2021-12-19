@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
             playerBody = GetComponent<Rigidbody2D>();
         }
 
-        health = 100;
+        health = DataPersistor.instance.getPlayerHealth();
     }
 
     // Update is called once per frame
@@ -88,6 +88,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damagePoint)
     {
         health -= damagePoint;
+        DataPersistor.instance.setPlayerHealth(health);
         this.gameObject.GetComponent<PlayerHealth>().UpdateHealth(health);
 
         if (health <= 0)
