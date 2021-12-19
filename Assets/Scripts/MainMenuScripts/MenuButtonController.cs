@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuButtonController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class MenuButtonController : MonoBehaviour
     [SerializeField] GameObject settingsPanel;
     [SerializeField] GameObject instructionsPanel;
     [SerializeField] GameObject highscorePanel;
+    [SerializeField] InputField nameInput;
 
     private void Start()
     {
@@ -56,5 +58,10 @@ public class MenuButtonController : MonoBehaviour
         highscore.displayThree();
         highscore.displayFour();
         highscore.displayFive();
+    }
+
+    public void inputName()
+    {
+        DataPersistor.instance.setPlayername(nameInput.text);
     }
 }

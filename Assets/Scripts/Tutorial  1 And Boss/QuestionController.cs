@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class QuestionController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class QuestionController : MonoBehaviour
     [SerializeField] Weapon weapon;
     [SerializeField] UIController uiController;
     [SerializeField] GameObject attackChoicesPanel;
+    [SerializeField] Text scoreText;
 
 
     [SerializeField] GameObject[] questionImages;
@@ -50,6 +52,9 @@ public class QuestionController : MonoBehaviour
         if (questionImages == null)
             questionImages = GameObject.FindGameObjectsWithTag("Question");
 
+        if (scoreText == null)
+            scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+
         foreach (GameObject qImg in questionImages)
             qImg.SetActive(false);
 
@@ -82,8 +87,8 @@ public class QuestionController : MonoBehaviour
         {
             uiController.HideQuestionPanel();
             attackChoicesPanel.SetActive(true);
-            //weapon.ShootOne();
-            //DisplayNextQuestion();
+            DataPersistor.instance.addScore();
+            scoreText.text = "Score: " + DataPersistor.instance.getCurrentScore();
         }
         else
         {

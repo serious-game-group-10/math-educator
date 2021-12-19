@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -35,9 +36,11 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        if(SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            DataPersistor.instance.addHighScore();
+        }
+
         Destroy(this.gameObject);
     }
-
-
-
 }

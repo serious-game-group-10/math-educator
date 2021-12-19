@@ -99,5 +99,6 @@ public class Player : MonoBehaviour
     private void Die()
     {
         SceneManager.LoadScene("EndScene");
+        DataPersistor.instance.addHighScore();
     }
 }
