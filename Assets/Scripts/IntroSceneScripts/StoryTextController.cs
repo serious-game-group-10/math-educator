@@ -11,12 +11,12 @@ public class StoryTextController : MonoBehaviour
         "Able to feel pain and emotions, the androids became fed up with the Human species and revolted.",
         "The androids started abducting the humans, taking them to the blackhole called the \"null\" where they would be discarded.",
         "The story begins with a bright young lad who has been abducted by the androids.",
-        "Desparetely looking for a way out, the young lad makes his way through the android ship..."};
+        "Desparetely looking for a way out, the young lad makes his way through the android ship using what few items he possesses..."};
 
     [SerializeField] TextWriter textWriter;
     [SerializeField] Text displayText;
     [SerializeField] int textIndex = 0;
-    [SerializeField] const float TEXT_WRITING_SPEED = 0.08f;
+    [SerializeField] const float TEXT_WRITING_SPEED = 0.03f;
 
     // audio 
     [SerializeField] AudioSource backgroundMusic;

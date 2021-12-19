@@ -977,5 +977,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TextWriter
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2875293895305821527, guid: 647f3fd1201936f47bee0278d4c20149, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 647f3fd1201936f47bee0278d4c20149, type: 3}

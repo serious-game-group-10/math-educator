@@ -462,6 +462,7 @@ MonoBehaviour:
   weapon: {fileID: 0}
   uiController: {fileID: 0}
   attackChoicesPanel: {fileID: 684553264}
+  scoreText: {fileID: 0}
   questionImages:
   - {fileID: 741866263382836498}
   - {fileID: 741866264879784290}
@@ -3694,8 +3695,8 @@ GameObject:
   - component: {fileID: 2143869273}
   - component: {fileID: 2143869270}
   - component: {fileID: 2143869275}
-  - component: {fileID: 2143869274}
   - component: {fileID: 2143869276}
+  - component: {fileID: 2143869274}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -3918,7 +3919,7 @@ Animator:
   m_GameObject: {fileID: 2143869267}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bbb56c8a77a6f7149adc81647aed648a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 74addf2f9271c3e4d80b35c9d8847ec4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5867,6 +5868,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1992180029}
+    - target: {fileID: 9108308062243295474, guid: fecbfba8311e5f04089ce09ede4b97fa, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 193455191
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fecbfba8311e5f04089ce09ede4b97fa, type: 3}
 --- !u!224 &6129843520838816999 stripped

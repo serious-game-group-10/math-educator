@@ -34,7 +34,6 @@ public class TextWriter : MonoBehaviour
                 timer += dialogueSpeed;
                 letterIndex++;
                 dialogue.text = textToWrite.Substring(0, letterIndex);
-                textAudio.Play();
 
                 if (letterIndex >= textToWrite.Length)
                 {
