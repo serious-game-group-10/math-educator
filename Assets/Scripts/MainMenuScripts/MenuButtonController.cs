@@ -50,5 +50,11 @@ public class MenuButtonController : MonoBehaviour
         Debug.Log("HighScores");
         mainMenuOverlay.SetActive(false);
         highscorePanel.SetActive(true);
+        DisplayHighscore highscore = highscorePanel.GetComponent<DisplayHighscore>();
+        highscore.displayOne();
+        highscore.displayTwo();
+        highscore.displayThree();
+        highscore.displayFour();
+        highscore.displayFive();
     }
 }
