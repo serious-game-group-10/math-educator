@@ -15,7 +15,7 @@ public class SceneController : MonoBehaviour
         advanceText.GetComponent<Text>().text = "Press \"z\" to advance";
         advanceText.SetActive(false);
 
-        GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>().PlayMusic();
+        //GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>().PlayMusic();
     }
 
     private void Update()

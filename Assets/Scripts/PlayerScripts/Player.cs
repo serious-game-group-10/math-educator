@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
             movement = 0f;
             speed = 0f;
         }
+
     }
 
     private void FixedUpdate()
