@@ -41,7 +41,7 @@ public class HelpScreenController : MonoBehaviour
         computerScreen.SetLowerLimit(index);
         computerScreen.SetUpperLimit(upperLimit);
         computerScreen.DisplayFirstImage();
-        
+
         Time.timeScale = 0;
     }
 

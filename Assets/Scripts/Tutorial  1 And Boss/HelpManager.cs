@@ -14,9 +14,9 @@ public class HelpManager : MonoBehaviour
     private int upperLimit;
     private int lowerLimit;
 
-    private void Start()
+    // method called after set active
+    private void OnEnable()
     {
-
         if (screenController == null)
         {
             screenController = GameObject.Find("ComputerController").GetComponent<HelpScreenController>();
@@ -42,7 +42,6 @@ public class HelpManager : MonoBehaviour
             img.SetActive(false);
         }
     }
-
 
     // screen buttons
 
