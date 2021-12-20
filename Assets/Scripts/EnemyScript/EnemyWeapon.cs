@@ -10,13 +10,21 @@ public class EnemyWeapon : MonoBehaviour
 
     private void Start()
     {
-        fireBulletSound = GetComponent<AudioSource>();
+        if (fireBulletSound == null)
+        {
+            fireBulletSound = GetComponent<AudioSource>();
+        }
+    }
+
+    private void Update()
+    {
+        fireBulletSound.volume = DataPersistor.instance.getGameVolume();
     }
 
     private void Shoot(Transform shootPoint)
     {
         Instantiate(bulletPrefab, shootPoint.position, Quaternion.identity);
-        AudioSource.PlayClipAtPoint(fireBulletSound.clip, transform.position);
+        fireBulletSound.Play();
     }
 
     public void GenericAttack()

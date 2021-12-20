@@ -511,6 +511,9 @@ MonoBehaviour:
   resumePauseBtnGO: {fileID: 1488065657}
   menu: {fileID: 5081947594572573110}
   black: {fileID: 1099979650}
+  positions: {fileID: 0}
+  player: {fileID: 0}
+  gui: {fileID: 0}
 --- !u!4 &177039325 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2253705685198571650, guid: 529986abf493af3479acb389d4d96767, type: 3}
@@ -1793,7 +1796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5395417090065135818, guid: c525464bbf0115a408cc8a6600dfd8ea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5395417090065135818, guid: c525464bbf0115a408cc8a6600dfd8ea, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5859,6 +5862,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a519ab92de3d3024a920d65dedfc147c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  helpImages:
+  - {fileID: 5995618453506507426}
+  - {fileID: 5995618454224168658}
+  - {fileID: 5995618453962430720}
+  - {fileID: 1568120098}
+  - {fileID: 218853596}
+  - {fileID: 653236223}
+  - {fileID: 438851162}
+  - {fileID: 33621004}
+  - {fileID: 1420020385}
+  - {fileID: 1628614648}
+  - {fileID: 2029392014}
 --- !u!114 &8189075733825174546
 MonoBehaviour:
   m_ObjectHideFlags: 0

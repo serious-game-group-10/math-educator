@@ -45,12 +45,15 @@ public class StoryTextController : MonoBehaviour
         spotlight.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
 
         backgroundMusic = GetComponent<AudioSource>();
+        backgroundMusic.volume = DataPersistor.instance.getGameVolume();
         UpdateStoryTextDisplay();
     }
 
     // Update is called once per frame
     void Update()
     {
+        backgroundMusic.volume = DataPersistor.instance.getGameVolume();
+
         if (Input.GetKeyDown("z") && textIndex < storyText.Length)
         {
             // wait until second dialogue text appears

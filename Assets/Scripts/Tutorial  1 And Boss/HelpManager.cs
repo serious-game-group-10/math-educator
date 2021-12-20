@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HelpManager : MonoBehaviour
 {
-    GameObject[] helpImages;
+    [SerializeField] GameObject[] helpImages;
     HelpScreenController screenController;
     GameObject prevBtn;
     GameObject nextBtn;

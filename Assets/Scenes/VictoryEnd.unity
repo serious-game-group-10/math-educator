@@ -373,8 +373,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 688195255}
-  - component: {fileID: 688195256}
   - component: {fileID: 688195257}
+  - component: {fileID: 688195256}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 688195254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a13033c748bc3e43815461d817fd558, type: 3}
+  m_Script: {fileID: 11500000, guid: a37a3ce844e561b45b1c20965687db48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   creditMusic: {fileID: 0}
@@ -816,7 +816,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 688195256}
-        m_TargetAssemblyTypeName: EndSceneController, Assembly-CSharp
+        m_TargetAssemblyTypeName: VictoryController, Assembly-CSharp
         m_MethodName: StartOver
         m_Mode: 1
         m_Arguments:
