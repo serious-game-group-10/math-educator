@@ -33,7 +33,7 @@ public class DataPersistor : MonoBehaviour
         inFight = false;
         currentScore = 0;
         playerHealth = 100;
-        playerName = "Unkown Player";
+        playerName = "Unknown Player";
         highscoreDB = new Highscore[5];
         length = 0;
     }

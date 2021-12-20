@@ -6,38 +6,77 @@ using UnityEngine.SceneManagement;
 
 public class GamePanel : MonoBehaviour
 {
-    [SerializeField] GameObject mainMenuBtn;
     [SerializeField] GameObject resumePauseBtnGO;
+    [SerializeField] GameObject menu;
+    [SerializeField] GameObject black;
+    
+    [SerializeField] GameObject positions;
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject gui;
 
     private void Start()
     {
+        if (positions == null)
+        {
+            positions = GameObject.Find("BoundariesAndPositions");
+        }
+
+        if (player == null)
+        {
+            player = GameObject.Find("Player");
+        }
+
+        if (gui == null)
+        {
+            gui = GameObject.Find("GUI");
+        }
+
         if(resumePauseBtnGO == null)
         {
             resumePauseBtnGO = GameObject.Find("ResumePauseBtn");
         }
+
+        if (black == null)
+        {
+            black = GameObject.Find("black");
+        }
+
+        if (menu == null)
+        {
+            menu = GameObject.Find("Menu");
+        }
+
+        black.SetActive(false);
+        menu.SetActive(false);
     }
 
-    public void goToMain()
+    public void GoToMain()
     {
-        SceneManager.LoadScene(0);
+        SetInactive();
+        menu.SetActive(true);
+        black.SetActive(true);
+        Time.timeScale = 0;
     }
 
-    public void pauseOrResume()
+    public void ExitMainMenu()
     {
-        Button button = resumePauseBtnGO.GetComponent<Button>();
-        Debug.Log(resumePauseBtnGO);
-        Debug.Log(button);
-        Text text = button.GetComponentInChildren<Text>();
+        SetActive();
+        menu.SetActive(false);
+        black.SetActive(false);
+        Time.timeScale = 1;
+    }
 
-        if (text.text == "Pause")
-        {
-            Time.timeScale = 0;
-            text.text = "Resume";
-        }
-        else
-        {
-            Time.timeScale = 1;
-            text.text = "Pause";
-        }
+    private void SetInactive()
+    {
+        positions.SetActive(false);
+        player.SetActive(false);
+        gui.SetActive(false);
+    }
+
+    private void SetActive()
+    {
+        positions.SetActive(true);
+        player.SetActive(true);
+        gui.SetActive(true);
     }
 }

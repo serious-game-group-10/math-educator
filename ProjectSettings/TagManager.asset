@@ -97,3 +97,9 @@ TagManager:
   - name: VERY FRONT
     uniqueID: 193455191
     locked: 0
+  - name: TOP
+    uniqueID: 214447595
+    locked: 0
+  - name: TIP
+    uniqueID: 1057957077
+    locked: 0
