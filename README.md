@@ -1,2 +1,6 @@
-# math-educator
-Education game created using the Unity 2D engine
+# Null
+
+An educational game made using the Unity2D engine. 
+
+## Goal
+The goal of the game is to teach player's different computer science concepts.
